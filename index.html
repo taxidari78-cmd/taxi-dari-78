@@ -35,7 +35,7 @@
   <!-- Favicon SVG inline -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23050505'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' fill='%23c9a45a'>T</text></svg>">
 
-  <!-- JSON-LD 1 : TaxiService enrichi GEO -->
+  <!-- JSON-LD 1 : TaxiService enrichi GEO + Catalogue offres -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,11 +51,27 @@
     "paymentAccepted": "Cash, Credit Card, American Express",
     "openingHours": "Mo-Su 00:00-24:00",
     "hasMap": "https://maps.google.com/?q=SAS+TAXI+DARI+78+Fontenay-le-Fleury",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "SAS Taxi Dari 78",
+      "image": "https://www.taxi-dari-78.com/taxi_photos.png",
+      "telephone": "+33681429680",
+      "url": "https://www.taxi-dari-78.com",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1 Rue Jules Massenet",
+        "addressLocality": "Fontenay-le-Fleury",
+        "postalCode": "78330",
+        "addressCountry": "FR"
+      }
+    },
     "serviceType": [
       "Transfert aéroport Paris Orly",
       "Transfert aéroport Roissy Charles de Gaulle",
       "Transfert aéroport Beauvais-Tillé",
       "Déplacements professionnels et d'affaires",
+      "Navette d'affaires B2B",
       "Trajets privés et familiaux",
       "Transfert gare Paris",
       "Mise à disposition chauffeur privé",
@@ -71,6 +87,52 @@
       "Chauffeur privé disponible nuit et week-end",
       "Transport depuis Paris vers les Yvelines"
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catalogue de Prestations Taxi Dari 78",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Transferts Aéroports",
+            "description": "Transferts vers les aéroports d'Orly (ORY), Roissy Charles de Gaulle (CDG) et Beauvais-Tillé (BVA) depuis les Yvelines et l'Île-de-France. Suivi de vol inclus, tarif ferme confirmé avant la course."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Transferts Grandes Gares Parisiennes",
+            "description": "Transferts vers la Gare de Lyon, Gare Montparnasse, Gare Saint-Lazare, Gare du Nord, Gare de l'Est et Gare d'Austerlitz depuis le 78 et la grande couronne. Accueil nominatif disponible."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Déplacements Professionnels et Navettes d'Entreprises",
+            "description": "Transport d'affaires B2B depuis les Yvelines vers Paris, La Défense, Hauts-de-Seine (92), Seine-Saint-Denis (93) et Val-de-Marne (94). Véhicule Berline Premium ou SUV Renault Espace. Facturation professionnelle disponible."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Trajets Privés et Familiaux",
+            "description": "Transport privé pour particuliers avec siège bébé et enfant disponible sur demande. SUV Renault Espace recommandé pour les familles avec bagages. Disponible 24h/7j."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mise à Disposition Longue Distance",
+            "description": "Mise à disposition d'un chauffeur privé à la demi-journée ou journée entière pour séminaires, mariages, événements ou déplacements hors Île-de-France. Devis personnalisé sur demande."
+          }
+        }
+      ]
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1 Rue Jules Massenet",

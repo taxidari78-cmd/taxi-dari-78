@@ -45,7 +45,7 @@
     "description": "Taxi Dari 78 : chauffeur privé 24h/7j au départ de Saint-Quentin-en-Yvelines, Versailles et toute l'Île-de-France. Transferts aéroports Orly, Roissy CDG et Beauvais-Tillé. Déplacements professionnels, trajets privés et familiaux. Accueil personnalisé en gare et aéroport, véhicules récents, tarif ferme confirmé avant la course.",
     "url": "https://www.taxi-dari-78.com/",
     "telephone": "+33681429680",
-    "email": "taxi.dari.78@gmail.com",
+    "email": "Reservation-taxi.sqy@gmx.fr",
     "priceRange": "€€",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Cash, Credit Card, American Express",
@@ -1028,6 +1028,152 @@
       * { animation: none !important; transition: none !important; }
     }
 
+    /* ─── BANDEAU AVIS DÉFILANT ─── */
+    .reviews-dynamic-section {
+      padding: 64px 0;
+      border-top: 1px solid var(--hairline);
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    /* En-tête section */
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* Piste de défilement */
+    .marquee-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: marqueeScroll 40s linear infinite;
+      will-change: transform;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* Masque fondu sur les bords */
+    .marquee-outer {
+      position: relative;
+      overflow: hidden;
+    }
+    .marquee-outer::before,
+    .marquee-outer::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-outer::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+    }
+    .marquee-outer::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
+    }
+
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Carte avis individuelle */
+    .review-card-dynamic {
+      flex-shrink: 0;
+      width: 300px;
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color .3s;
+      cursor: default;
+    }
+    .review-card-dynamic:hover {
+      border-color: var(--gold-border);
+    }
+
+    /* Étoiles */
+    .rc-stars {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+    .rc-stars span {
+      color: var(--gold);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* Texte avis */
+    .rc-text {
+      font-size: .88rem;
+      color: rgba(235,235,235,.75);
+      line-height: 1.65;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      flex: 1;
+    }
+
+    /* Auteur */
+    .rc-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--hairline);
+    }
+    .rc-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--gold-grad);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #000;
+      flex-shrink: 0;
+    }
+    .rc-name {
+      font-size: .82rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+    .rc-detail {
+      font-size: .7rem;
+      color: var(--muted);
+    }
+
+    /* Bouton Google Avis */
+    .btn-google-reviews {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      padding: 13px 28px;
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-google-reviews:hover {
+      background: rgba(201,164,90,.08);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .btn-google-reviews svg {
+      flex-shrink: 0;
+    }
+
     /* ─── ANIMATIONS D'ENTRÉE ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -1192,6 +1338,84 @@
       margin-top: 4px; display: none;
     }
     .field-error .error-msg { display: block; }
+
+    /* ─── RGPD CONSENTEMENT ─── */
+    .rgpd-consent-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--gold-border);
+      background: rgba(201,164,90,.03);
+    }
+
+    /* Checkbox stylee charte Or/Noir */
+    .rgpd-checkbox {
+      margin-top: 2px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+      border: 1px solid var(--gold-border);
+      background: transparent;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+      position: relative;
+      transition: background .2s, border-color .2s;
+    }
+    .rgpd-checkbox:checked {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .rgpd-checkbox:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #000;
+      font-size: .75rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .rgpd-checkbox:focus {
+      outline: 2px solid var(--gold-dim);
+      outline-offset: 2px;
+    }
+
+    /* Erreur RGPD non cochée */
+    .rgpd-consent-group.field-error {
+      border-color: #e05c5c;
+      background: rgba(224,92,92,.04);
+    }
+
+    .rgpd-label {
+      font-size: .82rem;
+      color: rgba(235,235,235,.7);
+      line-height: 1.55;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .rgpd-label strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .rgpd-label a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .rgpd-error-msg {
+      font-size: .7rem;
+      color: #e05c5c;
+      margin-top: 6px;
+      display: none;
+      padding-left: 30px;
+    }
+    .rgpd-consent-group.field-error + .rgpd-error-msg {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -1647,6 +1871,24 @@
                   <textarea id="notes" name="notes" placeholder="N° de vol, bagages volumeux, siège enfant, instructions particulières…"></textarea>
                 </div>
 
+                <!-- RGPD — Consentement obligatoire (non coché par défaut) -->
+                <div class="rgpd-consent-group" id="rgpd-group">
+                  <input
+                    type="checkbox"
+                    id="rgpd-consent"
+                    name="rgpd_consent"
+                    class="rgpd-checkbox"
+                    aria-required="true"
+                    aria-describedby="rgpd-error-msg"
+                  >
+                  <label for="rgpd-consent" class="rgpd-label">
+                    J'accepte que les informations saisies (téléphone, e-mail) soient utilisées par <strong>Taxi Dari 78</strong> exclusivement pour traiter ma demande de réservation et me recontacter. Vos données ne seront jamais cédées ni revendues. <a href="#" onclick="openPrivacy(); return false;">En savoir plus</a>
+                  </label>
+                </div>
+                <span class="rgpd-error-msg" id="rgpd-error-msg" role="alert">
+                  Veuillez accepter les conditions pour envoyer votre demande.
+                </span>
+
                 <button type="submit" class="btn btn-gold" style="width:100%; padding:18px; font-size:.75rem; letter-spacing:.22em;">
                   Envoyer la demande
                 </button>
@@ -1743,6 +1985,213 @@
 
   </main>
 
+  <!-- ─── AVIS CLIENTS DÉFILANTS ─── -->
+  <!-- Section CSS pur — zéro dépendance externe — performance maximale -->
+  <section class="reviews-dynamic-section" aria-label="Avis clients Taxi Dari 78">
+
+    <!-- En-tête -->
+    <div class="reviews-header wrap reveal">
+      <span class="kicker">Avis clients</span>
+      <h2 class="section-title" style="margin-bottom:6px;">Ce que disent nos passagers.</h2>
+      <p style="font-size:.88rem; color:var(--muted); margin-top:8px;">5 étoiles sur Google · Mis à jour régulièrement</p>
+    </div>
+
+    <!-- Piste défilante — les cartes sont dupliquées pour un défilement seamless infini -->
+    <div class="marquee-outer">
+      <div class="marquee-track" role="list" aria-label="Témoignages clients">
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Je recommande vivement cette chauffeuse de taxi. C'est une personne très à l'écoute, d'une grande gentillesse. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">L</div>
+            <div>
+              <div class="rc-name" itemprop="author">Laila</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Ça me tenait à cœur de témoigner ma gratitude et tirer mon chapeau pour cette grande DAME, à grand cœur. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">S</div>
+            <div>
+              <div class="rc-name" itemprop="author">Samira</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Je recommande+++ Très bonne conductrice, ponctuelle et très agréable. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">L</div>
+            <div>
+              <div class="rc-name" itemprop="author">Lydie C.</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Chauffeur ponctuelle, à l'écoute, trajet agréable et sans stress. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">N</div>
+            <div>
+              <div class="rc-name" itemprop="author">Nadia E.</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Une personne d'une grande gentillesse, voiture propre, le trajet était très agréable grâce à elle. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">J</div>
+            <div>
+              <div class="rc-name" itemprop="author">Johanna G.</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Je recommande vivement cette chauffeuse de taxi. C'est une personne très à l'écoute, d'une grande gentillesse. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">L</div>
+            <div>
+              <div class="rc-name" itemprop="author">Laila</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Ça me tenait à cœur de témoigner ma gratitude et tirer mon chapeau pour cette grande DAME, à grand cœur. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">S</div>
+            <div>
+              <div class="rc-name" itemprop="author">Samira</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Je recommande+++ Très bonne conductrice, ponctuelle et très agréable. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">L</div>
+            <div>
+              <div class="rc-name" itemprop="author">Lydie C.</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Chauffeur ponctuelle, à l'écoute, trajet agréable et sans stress. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">N</div>
+            <div>
+              <div class="rc-name" itemprop="author">Nadia E.</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+          <div class="rc-stars" aria-label="5 étoiles sur 5">
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+            <span aria-hidden="true">★</span>
+          </div>
+          <p class="rc-text" itemprop="reviewBody">« Une personne d'une grande gentillesse, voiture propre, le trajet était très agréable grâce à elle. »</p>
+          <div class="rc-author">
+            <div class="rc-avatar" aria-hidden="true">J</div>
+            <div>
+              <div class="rc-name" itemprop="author">Johanna G.</div>
+              <div class="rc-detail">Avis Google vérifié</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Bouton Google Avis -->
+    <div style="text-align:center;" class="reveal">
+      <a href="https://www.google.fr/search?ibp=gwp;0,7&q=Taxi+Dari+78+Saint-Quentin+en+yvelines+Transferts+Gares+%26+A%C3%A9roports&ludocid=10080465199723159142&lsig=AB86z5Wq78l8mibJQ-Qo7fmI5LgP&gfe_rd=mr&pli=1#lkt=LocalPoiReviews&lpg=cid:CgIgAQ%3D%3D"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-google-reviews"
+         aria-label="Voir tous nos avis sur Google">
+        <!-- Icône Google 4 couleurs -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Voir tous nos avis sur Google
+      </a>
+    </div>
+
+  </section>
+
   <!-- ─── FOOTER ─── -->
   <footer>
     <div class="wrap">
@@ -1833,7 +2282,7 @@
             <td style="padding:10px 0; color:var(--muted);">Contact</td>
             <td style="padding:10px 0; color:var(--text);">
               <a href="tel:+33681429680" style="color:var(--gold); text-decoration:none;">06 81 42 96 80</a> —
-              <a href="mailto:taxi.dari.78@gmail.com" style="color:var(--gold); text-decoration:none;">taxi.dari.78@gmail.com</a>
+              <a href="mailto:Reservation-taxi.sqy@gmx.fr" style="color:var(--gold); text-decoration:none;">Reservation-taxi.sqy@gmx.fr</a>
             </td>
           </tr>
         </table>
@@ -1876,7 +2325,7 @@
         </p>
         <p style="font-size:.88rem; color:var(--muted); line-height:1.7;">
           Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à :
-          <a href="mailto:taxi.dari.78@gmail.com" style="color:var(--gold); text-decoration:none;">taxi.dari.78@gmail.com</a>
+          <a href="mailto:Reservation-taxi.sqy@gmx.fr" style="color:var(--gold); text-decoration:none;">Reservation-taxi.sqy@gmx.fr</a>
         </p>
       </div>
 
@@ -1996,10 +2445,12 @@
       const vehicule  = get('vehicule');
       const notes     = get('notes');
 
-      // Réinitialiser erreurs
+      // Réinitialiser erreurs champs
       ['prenom','nom','tel','depart','arrivee','date','heure'].forEach(id => {
         document.getElementById('field-' + id)?.classList.remove('field-error');
       });
+      // Réinitialiser erreur RGPD
+      document.getElementById('rgpd-group')?.classList.remove('field-error');
 
       const required = {prenom, nom, tel, depart, arrivee, date, heure};
       let hasError = false;
@@ -2013,6 +2464,16 @@
         const firstErr = document.querySelector('.field-error input, .field-error textarea');
         firstErr?.scrollIntoView({behavior:'smooth', block:'center'});
         firstErr?.focus();
+        return;
+      }
+
+      // Validation RGPD — case obligatoire
+      const rgpdCheckbox = document.getElementById('rgpd-consent');
+      if (!rgpdCheckbox || !rgpdCheckbox.checked) {
+        const rgpdGroup = document.getElementById('rgpd-group');
+        rgpdGroup?.classList.add('field-error');
+        rgpdGroup?.scrollIntoView({behavior:'smooth', block:'center'});
+        rgpdCheckbox?.focus();
         return;
       }
 
@@ -2065,10 +2526,10 @@
       document.getElementById('sendSms').href =
         `sms:+33681429680?body=${encodeURIComponent(builtMsg)}`;
 
-      // L'email est envoyé PAR le client VERS taxi.dari.78@gmail.com
+      // L'email est envoyé PAR le client VERS Reservation-taxi.sqy@gmx.fr
       // On utilise l'email du client comme expéditeur si disponible
       const emailClient = get('email');
-      const mailDest = 'taxi.dari.78@gmail.com';
+      const mailDest = 'Reservation-taxi.sqy@gmx.fr';
       const mailSubject = 'Réservation Taxi Dari 78 — ' + prenom + ' ' + nom;
       const mailBody = builtMsgEmail + (emailClient ? '\n\nEmail client : ' + emailClient : '');
 
@@ -2144,7 +2605,7 @@
         <div style="padding-bottom:32px; border-bottom:1px solid var(--hairline);">
           <h3 style="font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">1. Responsable du traitement</h3>
           <p style="color:var(--muted);">SAS TAXI DARI 78 — 1 Rue Jules Massenet, 78330 Fontenay-le-Fleury<br>
-          Contact : <a href="mailto:taxi.dari.78@gmail.com" style="color:var(--gold); text-decoration:none;">taxi.dari.78@gmail.com</a></p>
+          Contact : <a href="mailto:Reservation-taxi.sqy@gmx.fr" style="color:var(--gold); text-decoration:none;">Reservation-taxi.sqy@gmx.fr</a></p>
         </div>
 
         <div style="padding-bottom:32px; border-bottom:1px solid var(--hairline);">
@@ -2189,7 +2650,7 @@
             <li style="color:var(--text); padding-left:18px; position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">—</span> Droit à la portabilité</li>
             <li style="color:var(--text); padding-left:18px; position:relative;"><span style="position:absolute;left:0;color:var(--gold-dim);">—</span> Droit d'opposition au traitement</li>
           </ul>
-          <p style="color:var(--muted); margin-top:14px;">Pour exercer ces droits : <a href="mailto:taxi.dari.78@gmail.com" style="color:var(--gold); text-decoration:none;">taxi.dari.78@gmail.com</a></p>
+          <p style="color:var(--muted); margin-top:14px;">Pour exercer ces droits : <a href="mailto:Reservation-taxi.sqy@gmx.fr" style="color:var(--gold); text-decoration:none;">Reservation-taxi.sqy@gmx.fr</a></p>
         </div>
 
         <div>

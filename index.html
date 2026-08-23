@@ -37,136 +37,258 @@
 
   <!-- JSON-LD 1 : TaxiService enrichi GEO + Catalogue offres -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TaxiService",
-    "name": "Taxi Dari 78",
-    "legalName": "SAS TAXI DARI 78",
-    "description": "Taxi Dari 78 : chauffeur privé 24h/7j au départ de Saint-Quentin-en-Yvelines, Versailles et toute l'Île-de-France. Transferts aéroports Orly, Roissy CDG et Beauvais-Tillé. Déplacements professionnels, trajets privés et familiaux. Accueil personnalisé en gare et aéroport, véhicules récents, tarif ferme confirmé avant la course.",
-    "url": "https://www.taxi-dari-78.com/",
+{
+  "@context": "https://schema.org",
+  "@type": "TaxiService",
+  "name": "Taxi Dari 78",
+  "legalName": "SAS TAXI DARI 78",
+  "description": "Taxi Dari 78 : chauffeur privé 24h/7j au départ de Saint-Quentin-en-Yvelines, Versailles et toute l'Île-de-France. Transferts aéroports Orly, Roissy CDG et Beauvais-Tillé. Déplacements professionnels, trajets privés et familiaux. Accueil personnalisé en gare et aéroport, véhicules récents, tarif ferme confirmé avant la course.",
+  "url": "https://www.taxi-dari-78.com/",
+  "telephone": "+33681429680",
+  "email": "Reservation-taxi.sqy@gmx.fr",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, American Express",
+  "openingHours": "Mo-Su 00:00-24:00",
+  "hasMap": "https://maps.google.com/?q=SAS+TAXI+DARI+78+Fontenay-le-Fleury",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "SAS Taxi Dari 78",
+    "image": "https://www.taxi-dari-78.com/taxi_photos.png",
     "telephone": "+33681429680",
-    "email": "Reservation-taxi.sqy@gmx.fr",
+    "url": "https://www.taxi-dari-78.com",
     "priceRange": "€€",
-    "currenciesAccepted": "EUR",
-    "paymentAccepted": "Cash, Credit Card, American Express",
-    "openingHours": "Mo-Su 00:00-24:00",
-    "hasMap": "https://maps.google.com/?q=SAS+TAXI+DARI+78+Fontenay-le-Fleury",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "SAS Taxi Dari 78",
-      "image": "https://www.taxi-dari-78.com/taxi_photos.png",
-      "telephone": "+33681429680",
-      "url": "https://www.taxi-dari-78.com",
-      "priceRange": "€€",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1 Rue Jules Massenet",
-        "addressLocality": "Fontenay-le-Fleury",
-        "postalCode": "78330",
-        "addressCountry": "FR"
-      }
-    },
-    "serviceType": [
-      "Transfert aéroport Paris Orly",
-      "Transfert aéroport Roissy Charles de Gaulle",
-      "Transfert aéroport Beauvais-Tillé",
-      "Déplacements professionnels et d'affaires",
-      "Navette d'affaires B2B",
-      "Trajets privés et familiaux",
-      "Transfert gare Paris",
-      "Mise à disposition chauffeur privé",
-      "Transport longue distance Île-de-France"
-    ],
-    "knowsAbout": [
-      "Transfert aéroport Orly depuis Saint-Quentin-en-Yvelines",
-      "Transfert aéroport CDG depuis les Yvelines",
-      "Transfert aéroport Beauvais depuis l'Île-de-France",
-      "Transport professionnel et d'affaires en Île-de-France",
-      "Trajets privés et familiaux avec siège enfant disponible",
-      "Accueil nominatif en gare et aéroport",
-      "Chauffeur privé disponible nuit et week-end",
-      "Transport depuis Paris vers les Yvelines"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Catalogue de Prestations Taxi Dari 78",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Transferts Aéroports",
-            "description": "Transferts vers les aéroports d'Orly (ORY), Roissy Charles de Gaulle (CDG) et Beauvais-Tillé (BVA) depuis les Yvelines et l'Île-de-France. Suivi de vol inclus, tarif ferme confirmé avant la course."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Transferts Grandes Gares Parisiennes",
-            "description": "Transferts vers la Gare de Lyon, Gare Montparnasse, Gare Saint-Lazare, Gare du Nord, Gare de l'Est et Gare d'Austerlitz depuis le 78 et la grande couronne. Accueil nominatif disponible."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Déplacements Professionnels et Navettes d'Entreprises",
-            "description": "Transport d'affaires B2B depuis les Yvelines vers Paris, La Défense, Hauts-de-Seine (92), Seine-Saint-Denis (93) et Val-de-Marne (94). Véhicule Berline Premium ou SUV Renault Espace. Facturation professionnelle disponible."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Trajets Privés et Familiaux",
-            "description": "Transport privé pour particuliers avec siège bébé et enfant disponible sur demande. SUV Renault Espace recommandé pour les familles avec bagages. Disponible 24h/7j."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Mise à Disposition Longue Distance",
-            "description": "Mise à disposition d'un chauffeur privé à la demi-journée ou journée entière pour séminaires, mariages, événements ou déplacements hors Île-de-France. Devis personnalisé sur demande."
-          }
-        }
-      ]
-    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1 Rue Jules Massenet",
       "addressLocality": "Fontenay-le-Fleury",
       "postalCode": "78330",
       "addressCountry": "FR"
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Saint-Quentin-en-Yvelines"},
-      {"@type": "City", "name": "Les Clayes-sous-Bois"},
-      {"@type": "City", "name": "Coignières"},
-      {"@type": "City", "name": "Élancourt"},
-      {"@type": "City", "name": "Guyancourt"},
-      {"@type": "City", "name": "Magny-les-Hameaux"},
-      {"@type": "City", "name": "Maurepas"},
-      {"@type": "City", "name": "Montigny-le-Bretonneux"},
-      {"@type": "City", "name": "Plaisir"},
-      {"@type": "City", "name": "Trappes"},
-      {"@type": "City", "name": "La Verrière"},
-      {"@type": "City", "name": "Villepreux"},
-      {"@type": "City", "name": "Voisins-le-Bretonneux"},
-      {"@type": "City", "name": "Versailles"},
-      {"@type": "City", "name": "Fontenay-le-Fleury"},
-      {"@type": "AdministrativeArea", "name": "Yvelines", "sameAs": "https://www.wikidata.org/wiki/Q12543"},
-      {"@type": "City", "name": "Paris", "sameAs": "https://www.wikidata.org/wiki/Q90"},
-      {"@type": "AdministrativeArea", "name": "Hauts-de-Seine", "sameAs": "https://www.wikidata.org/wiki/Q12548"},
-      {"@type": "AdministrativeArea", "name": "Seine-Saint-Denis", "sameAs": "https://www.wikidata.org/wiki/Q12547"},
-      {"@type": "AdministrativeArea", "name": "Val-de-Marne", "sameAs": "https://www.wikidata.org/wiki/Q12546"}
-    ],
-    "sameAs": [
-      "https://www.google.com/maps?q=SAS+TAXI+DARI+78"
+    }
+  },
+  "serviceType": [
+    "Transfert aéroport Paris Orly",
+    "Transfert aéroport Roissy Charles de Gaulle",
+    "Transfert aéroport Beauvais-Tillé",
+    "Déplacements professionnels et d'affaires",
+    "Navette d'affaires B2B",
+    "Trajets privés et familiaux",
+    "Transfert gare Paris",
+    "Mise à disposition chauffeur privé",
+    "Transport longue distance Île-de-France"
+  ],
+  "knowsAbout": [
+    "Transfert aéroport Orly depuis Saint-Quentin-en-Yvelines",
+    "Transfert aéroport CDG depuis les Yvelines",
+    "Transfert aéroport Beauvais depuis l'Île-de-France",
+    "Transport professionnel et d'affaires en Île-de-France",
+    "Trajets privés et familiaux avec siège enfant disponible",
+    "Accueil nominatif en gare et aéroport",
+    "Chauffeur privé disponible nuit et week-end",
+    "Transport depuis Paris vers les Yvelines"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Grille tarifaire Taxi Dari 78 — Estimations indicatives",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Transfert vers Aéroport Orly (ORY)"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "minPrice": 60,
+          "maxPrice": 70,
+          "description": "Tarif indicatif selon commune de départ dans SQY — Trappes 60€ / Plaisir 70€. Péages inclus."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Transfert vers Aéroport Roissy CDG"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "minPrice": 90,
+          "maxPrice": 100,
+          "description": "Tarif indicatif selon commune de départ dans SQY — Trappes 90€ / Plaisir 100€. Péages inclus."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Transfert Grandes Gares Parisiennes"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "minPrice": 65,
+          "maxPrice": 75,
+          "description": "Transferts vers Gare de Lyon, Montparnasse, Saint-Lazare, Gare du Nord, Gare de l'Est, Austerlitz."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Transfert Aéroport Beauvais-Tillé (BVA)"
+        },
+        "description": "Tarif sur devis — longue distance, péages inclus."
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Majoration Nuit (22h-6h)"
+        },
+        "description": "+15% sur le tarif de base — applicable aux courses entre 22h et 6h."
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Majoration Dimanche & Jours Fériés"
+        },
+        "description": "+15% sur le tarif de base."
+      }
     ]
-  }
-  </script>
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1 Rue Jules Massenet",
+    "addressLocality": "Fontenay-le-Fleury",
+    "postalCode": "78330",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Saint-Quentin-en-Yvelines"
+    },
+    {
+      "@type": "City",
+      "name": "Les Clayes-sous-Bois"
+    },
+    {
+      "@type": "City",
+      "name": "Coignières"
+    },
+    {
+      "@type": "City",
+      "name": "Élancourt"
+    },
+    {
+      "@type": "City",
+      "name": "Guyancourt"
+    },
+    {
+      "@type": "City",
+      "name": "Magny-les-Hameaux"
+    },
+    {
+      "@type": "City",
+      "name": "Maurepas"
+    },
+    {
+      "@type": "City",
+      "name": "Montigny-le-Bretonneux"
+    },
+    {
+      "@type": "City",
+      "name": "Plaisir"
+    },
+    {
+      "@type": "City",
+      "name": "Trappes"
+    },
+    {
+      "@type": "City",
+      "name": "La Verrière"
+    },
+    {
+      "@type": "City",
+      "name": "Villepreux"
+    },
+    {
+      "@type": "City",
+      "name": "Voisins-le-Bretonneux"
+    },
+    {
+      "@type": "City",
+      "name": "Versailles"
+    },
+    {
+      "@type": "City",
+      "name": "Fontenay-le-Fleury"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Yvelines",
+      "sameAs": "https://www.wikidata.org/wiki/Q12543"
+    },
+    {
+      "@type": "City",
+      "name": "Paris",
+      "sameAs": "https://www.wikidata.org/wiki/Q90"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Hauts-de-Seine",
+      "sameAs": "https://www.wikidata.org/wiki/Q12548"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Seine-Saint-Denis",
+      "sameAs": "https://www.wikidata.org/wiki/Q12547"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Val-de-Marne",
+      "sameAs": "https://www.wikidata.org/wiki/Q12546"
+    },
+    {
+      "@type": "Airport",
+      "name": "Aéroport de Paris-Orly",
+      "iataCode": "ORY"
+    },
+    {
+      "@type": "Airport",
+      "name": "Aéroport Roissy Charles-de-Gaulle",
+      "iataCode": "CDG"
+    },
+    {
+      "@type": "Airport",
+      "name": "Aéroport Beauvais-Tillé",
+      "iataCode": "BVA"
+    }
+  ],
+  "sameAs": [
+    "https://www.google.com/maps?q=SAS+TAXI+DARI+78"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+33695605960",
+      "contactType": "reservations",
+      "name": "Berline Premium",
+      "availableLanguage": "French"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+33681429680",
+      "contactType": "reservations",
+      "name": "SUV Confort — WhatsApp",
+      "availableLanguage": "French"
+    }
+  ]
+}
+</script>
 
   <!-- JSON-LD 2 : FAQPage GEO — questions clés pour les IA -->
   <script type="application/ld+json">
@@ -1416,6 +1538,164 @@
     .rgpd-consent-group.field-error + .rgpd-error-msg {
       display: block;
     }
+
+    /* ─── SIMULATEUR DE TARIF ─── */
+    .simulator-wrap {
+      margin-top: 32px;
+      border: 1px solid var(--gold-border);
+      background: rgba(201,164,90,.03);
+      padding: 40px;
+    }
+    .simulator-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300; color: #fff;
+      margin-bottom: 6px;
+    }
+    .simulator-sub {
+      font-size: .85rem; color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .sim-field { display: grid; gap: 7px; }
+    .sim-field label {
+      font-size: .6rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500;
+    }
+    .sim-select {
+      width: 100%;
+      background: #111111;
+      border: 1px solid rgba(255,255,255,.1);
+      color: #ebebeb;
+      padding: 13px 16px; font: inherit; font-size: .9rem;
+      font-weight: 300; outline: none; border-radius: 0;
+      -webkit-appearance: none; appearance: none; cursor: pointer;
+      transition: border-color .25s, background .25s;
+    }
+    .sim-select:focus {
+      border-color: var(--gold-dim);
+      background: #161616;
+    }
+    /* Force dark background on native dropdown options — tous navigateurs */
+    .sim-select option {
+      background: #111111;
+      color: #ebebeb;
+    }
+    .sim-select option:hover,
+    .sim-select option:checked {
+      background: #c9a45a;
+      color: #000;
+    }
+    .sim-select-wrap { position: relative; }
+    .sim-select-wrap::after {
+      content: ''; position: absolute; right: 14px; top: 50%;
+      transform: translateY(-50%); pointer-events: none;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--gold-dim);
+    }
+
+    /* Résultat */
+    .simulator-result {
+      display: none;
+      margin-top: 24px;
+      border-top: 1px solid var(--hairline);
+      padding-top: 24px;
+    }
+    .simulator-result.visible { display: block; }
+    .result-row {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .result-price-block { display: flex; flex-direction: column; gap: 4px; }
+    .result-label {
+      font-size: .62rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .result-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300; color: #fff; line-height: 1;
+    }
+    .result-price span {
+      font-size: 1.4rem; color: var(--gold);
+      vertical-align: top; margin-top: 8px; display: inline-block;
+    }
+    .result-note {
+      font-size: .78rem; color: var(--muted);
+      margin-top: 6px; line-height: 1.5;
+    }
+    .result-note.majoration {
+      color: #f0b429;
+    }
+    .result-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 28px;
+      background: rgba(37,211,102,.15);
+      border: 1px solid rgba(37,211,102,.4);
+      color: #25D366;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .15em; text-transform: uppercase;
+      text-decoration: none; transition: all .3s;
+      white-space: nowrap;
+    }
+    .result-cta:hover {
+      background: rgba(37,211,102,.25);
+      transform: translateY(-2px);
+    }
+    .result-devis {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; font-style: italic;
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 768px) {
+      .simulator-grid { grid-template-columns: 1fr; }
+      .simulator-wrap { padding: 28px 20px; }
+      .result-row { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── BARRE FLOTTANTE MOBILE ─── */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 800;
+      background: rgba(5,5,5,.97);
+      border-top: 1px solid var(--gold-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 16px;
+      gap: 10px;
+    }
+    @media (max-width: 768px) {
+      .mobile-sticky-bar { display: flex; }
+    }
+    .mobile-sticky-bar a {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 10px;
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      text-decoration: none; border-radius: 0;
+      transition: all .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .msb-call {
+      background: var(--gold-grad);
+      color: #000;
+    }
+    .msb-call:active { opacity: .85; }
+    .msb-estimate {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+    }
+    .msb-estimate:active { background: rgba(201,164,90,.1); }
+    .msb-icon { flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -1686,10 +1966,89 @@
               <li class="devis-li">Suivi vol &amp; train en temps réel</li>
               <li class="devis-li">Aucun supplément bagages ni retard</li>
               <li class="devis-li">Péages inclus dans le devis</li>
-              <li class="devis-li">Majoration nuit / week-end communiquée</li>
+              <li class="devis-li">Majoration +25% : Lun-Sam 19h–7h, Dimanche & jours fériés 24h/24</li>
             </ul>
           </div>
 
+        </div>
+
+        <!-- ─── SIMULATEUR DE TARIF ─── -->
+        <div class="simulator-wrap reveal">
+          <p class="simulator-title">Estimez votre tarif instantanément</p>
+          <p class="simulator-sub">Sélectionnez votre commune de départ et votre destination pour obtenir une estimation immédiate.</p>
+
+          <div class="simulator-grid">
+            <div class="sim-field">
+              <label>Commune de départ</label>
+              <div class="sim-select-wrap">
+                <select class="sim-select" id="simCommune" onchange="calcSimulator()">
+                  <option value="">-- Choisir --</option>
+                  <option value="Trappes">Trappes</option>
+                  <option value="La Verrière">La Verrière</option>
+                  <option value="Montigny-le-Bretonneux">Montigny-le-Bretonneux</option>
+                  <option value="Guyancourt">Guyancourt</option>
+                  <option value="Élancourt">Élancourt</option>
+                  <option value="Coignières">Coignières</option>
+                  <option value="Voisins-le-Bretonneux">Voisins-le-Bretonneux</option>
+                  <option value="Maurepas">Maurepas</option>
+                  <option value="Fontenay-le-Fleury">Fontenay-le-Fleury</option>
+                  <option value="Magny-les-Hameaux">Magny-les-Hameaux</option>
+                  <option value="Villepreux">Villepreux</option>
+                  <option value="Versailles">Versailles</option>
+                  <option value="Les Clayes-sous-Bois">Les Clayes-sous-Bois</option>
+                  <option value="Plaisir">Plaisir</option>
+                  <option value="Jouars-Pontchartrain">Jouars-Pontchartrain</option>
+                  <option value="Le Mesnil-Saint-Denis">Le Mesnil-Saint-Denis</option>
+                  <option value="Saint-Cyr-l'École">Saint-Cyr-l'École</option>
+                  <option value="Marly-le-Roi">Marly-le-Roi</option>
+                  <option value="Saint-Nom-la-Bretèche">Saint-Nom-la-Bretèche</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sim-field">
+              <label>Destination</label>
+              <div class="sim-select-wrap">
+                <select class="sim-select" id="simDest" onchange="calcSimulator()">
+                  <option value="">-- Choisir --</option>
+                  <option value="orly">Aéroport Orly (ORY)</option>
+                  <option value="cdg">Aéroport Roissy CDG</option>
+                  <option value="beauvais">Aéroport Beauvais-Tillé</option>
+                  <option value="gares">Grandes Gares Parisiennes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sim-field">
+              <label>Horaire de départ</label>
+              <div class="sim-select-wrap">
+                <select class="sim-select" id="simHoraire" onchange="calcSimulator()">
+                  <option value="jour">Jour — Lun-Sam 6h à 22h</option>
+                  <option value="soirnuit">Lun-Sam — 19h à 7h (+25%)</option>
+                  <option value="dimanche">Dimanche — Toute la journée (+25%)</option>
+                  <option value="ferie">Jour férié — Toute la journée (+25%)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Résultat -->
+          <div class="simulator-result" id="simResult">
+            <div class="result-row">
+              <div class="result-price-block">
+                <span class="result-label" id="simResultLabel">Estimation</span>
+                <div class="result-price" id="simResultPrice"></div>
+                <p class="result-note" id="simResultNote"></p>
+                <p class="result-note majoration" id="simResultMajoration"></p>
+              </div>
+              <a href="#" class="result-cta" id="simWhatsapp" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.949-1.42A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                </svg>
+                Réserver ce trajet via WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="reveal" style="
@@ -2084,7 +2443,7 @@
             </div>
           </div>
         </article>
-        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+        <article class="review-card-dynamic">
           <div class="rc-stars" aria-label="5 étoiles sur 5">
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
@@ -2092,16 +2451,16 @@
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
           </div>
-          <p class="rc-text" itemprop="reviewBody">« Je recommande vivement cette chauffeuse de taxi. C'est une personne très à l'écoute, d'une grande gentillesse. »</p>
+          <p class="rc-text">« Je recommande vivement cette chauffeuse de taxi. C'est une personne très à l'écoute, d'une grande gentillesse. »</p>
           <div class="rc-author">
             <div class="rc-avatar" aria-hidden="true">L</div>
             <div>
-              <div class="rc-name" itemprop="author">Laila</div>
+              <div class="rc-name">Laila</div>
               <div class="rc-detail">Avis Google vérifié</div>
             </div>
           </div>
         </article>
-        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+        <article class="review-card-dynamic">
           <div class="rc-stars" aria-label="5 étoiles sur 5">
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
@@ -2109,16 +2468,16 @@
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
           </div>
-          <p class="rc-text" itemprop="reviewBody">« Ça me tenait à cœur de témoigner ma gratitude et tirer mon chapeau pour cette grande DAME, à grand cœur. »</p>
+          <p class="rc-text">« Ça me tenait à cœur de témoigner ma gratitude et tirer mon chapeau pour cette grande DAME, à grand cœur. »</p>
           <div class="rc-author">
             <div class="rc-avatar" aria-hidden="true">S</div>
             <div>
-              <div class="rc-name" itemprop="author">Samira</div>
+              <div class="rc-name">Samira</div>
               <div class="rc-detail">Avis Google vérifié</div>
             </div>
           </div>
         </article>
-        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+        <article class="review-card-dynamic">
           <div class="rc-stars" aria-label="5 étoiles sur 5">
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
@@ -2126,16 +2485,16 @@
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
           </div>
-          <p class="rc-text" itemprop="reviewBody">« Je recommande+++ Très bonne conductrice, ponctuelle et très agréable. »</p>
+          <p class="rc-text">« Je recommande+++ Très bonne conductrice, ponctuelle et très agréable. »</p>
           <div class="rc-author">
             <div class="rc-avatar" aria-hidden="true">L</div>
             <div>
-              <div class="rc-name" itemprop="author">Lydie C.</div>
+              <div class="rc-name">Lydie C.</div>
               <div class="rc-detail">Avis Google vérifié</div>
             </div>
           </div>
         </article>
-        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+        <article class="review-card-dynamic">
           <div class="rc-stars" aria-label="5 étoiles sur 5">
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
@@ -2143,16 +2502,16 @@
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
           </div>
-          <p class="rc-text" itemprop="reviewBody">« Chauffeur ponctuelle, à l'écoute, trajet agréable et sans stress. »</p>
+          <p class="rc-text">« Chauffeur ponctuelle, à l'écoute, trajet agréable et sans stress. »</p>
           <div class="rc-author">
             <div class="rc-avatar" aria-hidden="true">N</div>
             <div>
-              <div class="rc-name" itemprop="author">Nadia E.</div>
+              <div class="rc-name">Nadia E.</div>
               <div class="rc-detail">Avis Google vérifié</div>
             </div>
           </div>
         </article>
-        <article class="review-card-dynamic" itemscope itemtype="https://schema.org/Review">
+        <article class="review-card-dynamic">
           <div class="rc-stars" aria-label="5 étoiles sur 5">
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
@@ -2160,11 +2519,11 @@
             <span aria-hidden="true">★</span>
             <span aria-hidden="true">★</span>
           </div>
-          <p class="rc-text" itemprop="reviewBody">« Une personne d'une grande gentillesse, voiture propre, le trajet était très agréable grâce à elle. »</p>
+          <p class="rc-text">« Une personne d'une grande gentillesse, voiture propre, le trajet était très agréable grâce à elle. »</p>
           <div class="rc-author">
             <div class="rc-avatar" aria-hidden="true">J</div>
             <div>
-              <div class="rc-name" itemprop="author">Johanna G.</div>
+              <div class="rc-name">Johanna G.</div>
               <div class="rc-detail">Avis Google vérifié</div>
             </div>
           </div>
@@ -2571,6 +2930,92 @@
       if (e.key === 'Escape') { closeLegal(); closePrivacy(); }
     });
 
+    // ── SIMULATEUR DE TARIF ──
+    const simTarifs = {
+      'Trappes':                  { orly: 60,  cdg: 90,  gares: 65  },
+      'La Verrière':              { orly: 62,  cdg: 92,  gares: 67  },
+      'Montigny-le-Bretonneux':   { orly: 63,  cdg: 93,  gares: 68  },
+      'Guyancourt':               { orly: 64,  cdg: 94,  gares: 69  },
+      'Élancourt':                { orly: 65,  cdg: 95,  gares: 70  },
+      'Coignières':               { orly: 65,  cdg: 95,  gares: 70  },
+      'Voisins-le-Bretonneux':    { orly: 64,  cdg: 94,  gares: 69  },
+      'Maurepas':                 { orly: 66,  cdg: 96,  gares: 71  },
+      'Fontenay-le-Fleury':       { orly: 65,  cdg: 95,  gares: 70  },
+      'Magny-les-Hameaux':        { orly: 65,  cdg: 95,  gares: 70  },
+      'Villepreux':               { orly: 66,  cdg: 96,  gares: 71  },
+      'Versailles':               { orly: 67,  cdg: 97,  gares: 72  },
+      'Les Clayes-sous-Bois':     { orly: 68,  cdg: 98,  gares: 73  },
+      'Plaisir':                  { orly: 70,  cdg: 100, gares: 75  },
+      'Jouars-Pontchartrain':     { orly: 70,  cdg: 105, gares: 75  },
+      'Le Mesnil-Saint-Denis':    { orly: 68,  cdg: 98,  gares: 73  },
+      'Saint-Cyr-l\'École':       { orly: 63,  cdg: 93,  gares: 68  },
+      'Marly-le-Roi':             { orly: 65,  cdg: 90,  gares: 70  },
+      'Saint-Nom-la-Bretèche':    { orly: 68,  cdg: 93,  gares: 73  },
+    };
+
+    const simDestLabels = {
+      orly:     'Aéroport Orly (ORY)',
+      cdg:      'Aéroport Roissy CDG',
+      beauvais: 'Aéroport Beauvais-Tillé',
+      gares:    'Grandes Gares Parisiennes',
+    };
+
+    const simMajorations = {
+      jour:      { coef: 1.00, label: '' },
+      soirnuit:  { coef: 1.25, label: '🌙 Majoration Lun-Sam 19h–7h appliquée (+25%)' },
+      dimanche:  { coef: 1.25, label: '🗓️ Majoration dimanche 24h/24 appliquée (+25%)' },
+      ferie:     { coef: 1.25, label: '📅 Majoration jour férié 24h/24 appliquée (+25%)' },
+    };
+
+    function calcSimulator() {
+      const commune  = document.getElementById('simCommune').value;
+      const dest     = document.getElementById('simDest').value;
+      const horaire  = document.getElementById('simHoraire').value;
+      const resultEl = document.getElementById('simResult');
+
+      if (!commune || !dest) {
+        resultEl.classList.remove('visible');
+        return;
+      }
+
+      const tarifs = simTarifs[commune];
+      const maj    = simMajorations[horaire];
+      const destLabel = simDestLabels[dest];
+
+      // Beauvais = sur devis
+      if (dest === 'beauvais') {
+        document.getElementById('simResultLabel').textContent = commune + ' → ' + destLabel;
+        document.getElementById('simResultPrice').innerHTML = '<span class="result-devis">Sur devis</span>';
+        document.getElementById('simResultNote').textContent = 'Beauvais-Tillé est une longue distance (péages inclus). Contactez-nous pour un tarif personnalisé.';
+        document.getElementById('simResultMajoration').textContent = '';
+        const waMsg = encodeURIComponent('Bonjour, je souhaite un devis pour un trajet ' + commune + ' → Aéroport Beauvais-Tillé. Merci.');
+        document.getElementById('simWhatsapp').href = 'https://wa.me/33681429680?text=' + waMsg;
+        resultEl.classList.add('visible');
+        return;
+      }
+
+      const basePrice = tarifs[dest];
+      const finalPrice = Math.round(basePrice * maj.coef);
+
+      document.getElementById('simResultLabel').textContent = commune + ' → ' + destLabel;
+      document.getElementById('simResultPrice').innerHTML = '<span>~</span>' + finalPrice + '<span>€</span>';
+      document.getElementById('simResultNote').textContent = 'Tarif estimé indicatif (hors conditions de trafic exceptionnelles) — Pas de frais cachés, péages et bagages inclus. Prix ferme confirmé à la réservation.';
+      document.getElementById('simResultMajoration').textContent = maj.label;
+
+      const waMsg = encodeURIComponent(
+        'Bonjour Taxi Dari 78 ! 🚖\n\n' +
+        'Je souhaite réserver le trajet suivant :\n' +
+        '📍 Départ : ' + commune + '\n' +
+        '🏁 Destination : ' + destLabel + '\n' +
+        '💰 Estimation : ~' + finalPrice + ' €' +
+        (maj.label ? '\n⏰ ' + maj.label : '') +
+        '\n\nMerci de confirmer la disponibilité.'
+      );
+      document.getElementById('simWhatsapp').href = 'https://wa.me/33681429680?text=' + waMsg;
+
+      resultEl.classList.add('visible');
+    }
+
     function resetForm() {
       const successEl = document.getElementById('formSuccess');
       successEl.classList.remove('show');
@@ -2674,5 +3119,20 @@
     </div>
   </div>
 
+  <!-- ─── BARRE FLOTTANTE MOBILE ─── -->
+  <div class="mobile-sticky-bar" role="navigation" aria-label="Actions rapides">
+    <a href="tel:+33681429680" class="msb-call">
+      <svg class="msb-icon" width="15" height="15" viewBox="0 0 24 24" fill="#000">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      Appeler : 06 81 42 96 80
+    </a>
+    <a href="#tarifs" class="msb-estimate" onclick="document.getElementById('simCommune').scrollIntoView({behavior:'smooth',block:'center'})">
+      <svg class="msb-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      Estimer mon trajet
+    </a>
+  </div>
 </body>
 </html>

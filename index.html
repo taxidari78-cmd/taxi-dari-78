@@ -914,7 +914,23 @@
       box-shadow: 0 0 0 3px rgba(201,164,90,.06);
     }
 
-    select { appearance: none; cursor: pointer; }
+    /* Force fond sombre sur tous les <select> du formulaire */
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      background: #111111 !important;
+      color: #ebebeb !important;
+    }
+    select option {
+      background: #111111;
+      color: #ebebeb;
+    }
+    select option:checked,
+    select option:hover {
+      background: #c9a45a;
+      color: #000;
+    }
     .select-wrap { position: relative; }
     .select-wrap::after {
       content: '';
@@ -1658,44 +1674,7 @@
       .result-row { flex-direction: column; align-items: flex-start; }
     }
 
-    /* ─── BARRE FLOTTANTE MOBILE ─── */
-    .mobile-sticky-bar {
-      display: none;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 800;
-      background: rgba(5,5,5,.97);
-      border-top: 1px solid var(--gold-border);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 12px 16px;
-      gap: 10px;
-    }
-    @media (max-width: 768px) {
-      .mobile-sticky-bar { display: flex; }
-    }
-    .mobile-sticky-bar a {
-      flex: 1;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 13px 10px;
-      font-size: .68rem; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
-      text-decoration: none; border-radius: 0;
-      transition: all .2s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .msb-call {
-      background: var(--gold-grad);
-      color: #000;
-    }
-    .msb-call:active { opacity: .85; }
-    .msb-estimate {
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--gold-border);
-      color: var(--gold);
-    }
-    .msb-estimate:active { background: rgba(201,164,90,.1); }
-    .msb-icon { flex-shrink: 0; }
+
   </style>
 </head>
 <body>
@@ -1841,28 +1820,29 @@
         <div class="section-head">
           <span class="kicker">Garanties absolues</span>
           <h2 class="section-title">Pourquoi choisir Taxi Dari 78<br>plutôt qu'une application standard ?</h2>
+          <p style="margin-top:12px; font-size:.82rem; color:var(--muted);">Artisan Taxi agréé — Titulaire d'une ADS (Autorisation de Stationnement) — Yvelines (78)</p>
         </div>
 
         <div class="why-grid">
           <div class="why-card">
             <div class="why-num">01</div>
             <h3>Prix transparent, sans surprise</h3>
-            <p>Le tarif annoncé lors de la réservation est ferme et définitif. Ni supplément bagages, ni frais d'approche, ni majoration en cas de trafic.</p>
+            <p>Le tarif est ferme et confirmé avant chaque course, majorations de nuit et jours fériés incluses dans le devis. Ni supplément bagages, ni frais d'approche cachés.</p>
           </div>
           <div class="why-card">
             <div class="why-num">02</div>
             <h3>Suivi vol & train en temps réel</h3>
-            <p>Votre chauffeur surveille l'état de votre vol ou de votre train. En cas de retard, il adapte automatiquement son heure de prise en charge — sans frais supplémentaires.</p>
+            <p>Votre chauffeur surveille votre vol ou train en temps réel. En cas de retard annoncé, la prise en charge est automatiquement ajustée — 45 minutes d'attente offertes à l'arrivée, sans frais supplémentaires.</p>
           </div>
           <div class="why-card">
             <div class="why-num">03</div>
             <h3>Ponctualité certifiée dans le 78</h3>
-            <p>Basés au cœur de SQY, nous maîtrisons chaque axe routier local. Votre chauffeur est présent 5 à 10 minutes avant l'heure convenue, systématiquement.</p>
+            <p>Basés au cœur de SQY, nous maîtrisons chaque axe routier local. Votre chauffeur est en général présent 5 à 10 minutes avant l'heure convenue, sous réserve des conditions de circulation.</p>
           </div>
           <div class="why-card">
             <div class="why-num">04</div>
             <h3>Votre course est sacralisée</h3>
-            <p>Contrairement aux plateformes où l'annulation de dernière minute est courante, notre réseau bloque votre chauffeur dès confirmation. La course ne peut être réattribuée.</p>
+            <p>Dès confirmation, votre course est bloquée pour vous. En cas d'imprévu, notre équipe de deux chauffeurs assure la continuité de service — votre trajet n'est jamais abandonné.</p>
           </div>
           <div class="why-card">
             <div class="why-num">05</div>
@@ -1872,7 +1852,7 @@
           <div class="why-card">
             <div class="why-num">06</div>
             <h3>Longue distance & événements</h3>
-            <p>Toute destination en France sur devis. Mise à disposition à la journée pour séminaires, mariages ou réunions. Coordination multi-véhicules disponible.</p>
+            <p>Toute destination en France sur devis, sous réserve de disponibilité. Mise à disposition à la journée pour séminaires, mariages ou réunions. Retour à vide et étapes intermédiaires inclus dans le devis.</p>
           </div>
         </div>
       </div>
@@ -1896,11 +1876,11 @@
             <div class="vehicle-body">
               <span class="vehicle-badge">Berline affaires</span>
               <h3>Berline Premium</h3>
-              <p>Habitacle premium, vitres teintées et isolation acoustique soignée. Idéale pour vos trajets d'affaires, transferts gare et aéroport. Chargeurs et bouteilles d'eau à disposition, prise en charge ponctuelle garantie.</p>
+              <p>Habitacle premium, vitres teintées et isolation acoustique soignée. Idéale pour vos trajets d'affaires, transferts gare et aéroport. Chargeurs et bouteilles d'eau à disposition.</p>
               <div class="vehicle-features">
                 <span class="feature-tag">4 passagers max</span>
+                <span class="feature-tag">2 valises cabine</span>
                 <span class="feature-tag">Chargeurs</span>
-                <span class="feature-tag">Eau à bord</span>
                 <span class="feature-tag">Climatisation</span>
               </div>
             </div>
@@ -1913,11 +1893,11 @@
             <div class="vehicle-body">
               <span class="vehicle-badge">SUV confort</span>
               <h3>SUV Espace & Famille</h3>
-              <p>Coffre généreux pour les bagages de soute, hauteur de plafond optimisée et finitions haut de gamme pour toute la famille.</p>
+              <p>Coffre généreux pour les bagages de soute — jusqu'à 4 grandes valises. Hauteur de plafond optimisée, idéal pour les familles et les départs en voyage.</p>
               <div class="vehicle-features">
                 <span class="feature-tag">4 passagers max</span>
-                <span class="feature-tag">Grand coffre</span>
-                <span class="feature-tag">Sièges enfants</span>
+                <span class="feature-tag">4 grandes valises</span>
+                <span class="feature-tag">Siège enfant dispo</span>
                 <span class="feature-tag">Eau à bord</span>
               </div>
             </div>
@@ -1941,7 +1921,7 @@
           <div class="devis-col-left">
             <span style="font-size:.62rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:16px;">Pourquoi un devis ?</span>
             <p style="color:var(--muted); font-size:.92rem; line-height:1.75; margin-bottom:16px;">
-              SQY regroupe 12 communes, chacune à une distance différente des aéroports. Nous établissons un tarif juste et précis selon votre adresse exacte.
+              Saint-Quentin-en-Yvelines regroupe 12 communes, chacune à une distance différente des aéroports. Nous établissons un tarif juste et précis selon votre adresse exacte de prise en charge.
             </p>
             <div style="display:flex; flex-wrap:wrap; gap:8px;">
               <span class="commune-tag">Les Clayes-sous-Bois</span>
@@ -2225,9 +2205,52 @@
                   </div>
                 </div>
 
+                <!-- Sens du trajet -->
                 <div class="field">
-                  <label for="notes">Informations complémentaires</label>
-                  <textarea id="notes" name="notes" placeholder="N° de vol, bagages volumeux, siège enfant, instructions particulières…"></textarea>
+                  <label for="sens">Sens du trajet</label>
+                  <div class="select-wrap">
+                    <select id="sens" name="sens">
+                      <option value="depart">Départ — vers aéroport ou gare</option>
+                      <option value="arrivee">Arrivée — accueil depuis aéroport ou gare</option>
+                      <option value="autre">Autre trajet</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Vol / Train + Bagages + Siège enfant -->
+                <div class="form-row-2">
+                  <div class="field">
+                    <label for="volTrain">N° de vol ou de train (optionnel)</label>
+                    <input type="text" id="volTrain" name="volTrain" placeholder="Ex : AF1234 ou TGV 6201">
+                  </div>
+                  <div class="field">
+                    <label for="bagages">Bagages</label>
+                    <div class="select-wrap">
+                      <select id="bagages" name="bagages">
+                        <option value="1">1 valise</option>
+                        <option value="2">2 valises</option>
+                        <option value="3">3 valises ou plus</option>
+                        <option value="encombrant">Bagages encombrants</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="siegeEnfant">Siège enfant</label>
+                  <div class="select-wrap">
+                    <select id="siegeEnfant" name="siegeEnfant">
+                      <option value="non">Non nécessaire</option>
+                      <option value="bebe">Siège bébé (0–13 kg)</option>
+                      <option value="enfant">Siège enfant (9–36 kg)</option>
+                      <option value="rehausseur">Réhausseur (15–36 kg)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="notes">Précisions supplémentaires (optionnel)</label>
+                  <textarea id="notes" name="notes" placeholder="Terminal, instructions d'accès, demandes particulières…"></textarea>
                 </div>
 
                 <!-- RGPD — Consentement obligatoire (non coché par défaut) -->
@@ -2249,7 +2272,7 @@
                 </span>
 
                 <button type="submit" class="btn btn-gold" style="width:100%; padding:18px; font-size:.75rem; letter-spacing:.22em;">
-                  Envoyer la demande
+                  Demander mon devis & réserver
                 </button>
               </div>
             </form>
@@ -2263,16 +2286,13 @@
               <p style="margin-bottom:32px;">Choisissez comment nous envoyer votre réservation.<br>Nous vous confirmons le tarif sous 15 minutes.</p>
 
               <div style="display:flex; flex-direction:column; gap:12px; width:100%; max-width:380px;">
-                <a id="sendWa" href="#" target="_blank" class="btn btn-wa" style="width:100%; padding:16px; justify-content:center; gap:10px;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.949-1.42A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                <a id="sendWa" href="#" target="_blank" class="btn btn-wa" style="width:100%; padding:16px; justify-content:center;">
                   Envoyer via WhatsApp
                 </a>
-                <a id="sendSms" href="#" class="btn btn-ghost" style="width:100%; padding:16px; justify-content:center; gap:10px;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ebebeb" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <a id="sendSms" href="#" class="btn btn-ghost" style="width:100%; padding:16px; justify-content:center;">
                   Envoyer par SMS
                 </a>
-                <a id="sendEmail" href="#" class="btn btn-ghost" style="width:100%; padding:16px; justify-content:center; gap:10px;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ebebeb" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a id="sendEmail" href="#" class="btn btn-ghost" style="width:100%; padding:16px; justify-content:center;">
                   Envoyer par Email
                 </a>
               </div>
@@ -2284,6 +2304,14 @@
           </div>
 
           <div class="form-aside">
+            <!-- Réassurance équipe -->
+            <div class="aside-block" style="border-left:2px solid var(--gold-border); padding-left:16px; background:none; border-top:none; border-right:none; border-bottom:none;">
+              <strong style="color:var(--gold);">Une chauffeuse & un chauffeur</strong>
+              <p style="margin-top:6px;">Notre équipe mixte assure votre confort et votre sécurité 24h/7j. Idéal pour les voyageuses souhaitant être accompagnées par une chauffeuse.</p>
+            </div>
+
+            <div class="aside-divider"></div>
+
             <div class="aside-block">
               <strong>Réservation express</strong>
               <p>Besoin d'une réponse immédiate ? Contactez-nous directement :</p>
@@ -2352,7 +2380,7 @@
     <div class="reviews-header wrap reveal">
       <span class="kicker">Avis clients</span>
       <h2 class="section-title" style="margin-bottom:6px;">Ce que disent nos passagers.</h2>
-      <p style="font-size:.88rem; color:var(--muted); margin-top:8px;">5 étoiles sur Google · Mis à jour régulièrement</p>
+      <p style="font-size:.88rem; color:var(--muted); margin-top:8px;"><strong style="color:var(--gold);">★ 5/5</strong> — 22 avis Google vérifiés</p>
     </div>
 
     <!-- Piste défilante — les cartes sont dupliquées pour un défilement seamless infini -->
@@ -2556,7 +2584,7 @@
     <div class="wrap">
       <div class="footer-inner">
         <span class="display footer-brand">Taxi Dari 78</span>
-        <span class="footer-legal">© 2026 SAS Taxi Dari 78 — Fontenay-le-Fleury, 78330</span>
+        <span class="footer-legal">© 2026 SAS Taxi Dari 78 — Artisan Taxi — Titulaire ADS — Fontenay-le-Fleury (78330)</span>
         <ul class="footer-links">
           <li><a href="tel:+33681429680">06 81 42 96 80</a></li>
           <li><a href="https://wa.me/33681429680">WhatsApp</a></li>
@@ -2790,19 +2818,23 @@
 
       const get = id => document.getElementById(id)?.value?.trim() || '';
 
-      const prenom    = get('prenom');
-      const nom       = get('nom');
-      const tel       = get('tel');
-      const depart    = get('depart');
-      const arrivee   = get('arrivee');
-      const dateRaw   = get('date');
+      const prenom       = get('prenom');
+      const nom          = get('nom');
+      const tel          = get('tel');
+      const depart       = get('depart');
+      const arrivee      = get('arrivee');
+      const dateRaw      = get('date');
       // Convertir AAAA-MM-JJ → JJ/MM/AAAA
       const dateParts = dateRaw.split('-');
       const date = dateParts.length === 3 ? dateParts[2] + '/' + dateParts[1] + '/' + dateParts[0] : dateRaw;
       const heure     = get('heure');
-      const passagers = get('passagers');
-      const vehicule  = get('vehicule');
-      const notes     = get('notes');
+      const passagers    = get('passagers');
+      const vehicule     = get('vehicule');
+      const sens         = get('sens');
+      const volTrain     = get('volTrain');
+      const bagages      = get('bagages');
+      const siegeEnfant  = get('siegeEnfant');
+      const notes        = get('notes');
 
       // Réinitialiser erreurs champs
       ['prenom','nom','tel','depart','arrivee','date','heure'].forEach(id => {
@@ -3119,20 +3151,5 @@
     </div>
   </div>
 
-  <!-- ─── BARRE FLOTTANTE MOBILE ─── -->
-  <div class="mobile-sticky-bar" role="navigation" aria-label="Actions rapides">
-    <a href="tel:+33681429680" class="msb-call">
-      <svg class="msb-icon" width="15" height="15" viewBox="0 0 24 24" fill="#000">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-      </svg>
-      Appeler : 06 81 42 96 80
-    </a>
-    <a href="#tarifs" class="msb-estimate" onclick="document.getElementById('simCommune').scrollIntoView({behavior:'smooth',block:'center'})">
-      <svg class="msb-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-      </svg>
-      Estimer mon trajet
-    </a>
-  </div>
 </body>
 </html>

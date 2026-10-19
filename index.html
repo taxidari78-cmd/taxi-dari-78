@@ -3284,15 +3284,23 @@
       }
 
       // Prix final = max(8€, prise_en_charge + distance × tarif_km)
+      // Remise commerciale : -15% tarifs jour (A/C) · -25% tarifs nuit (B/D)
+      const estNuit = (trancheCode === 'B' || trancheCode === 'D');
+      const REMISE   = estNuit ? 0.75 : 0.85;
       const prixBrut  = PRISE_EN_CHARGE + distKm * tarifKm;
-      const prixFinal = Math.max(MINIMUM_COURSE, Math.ceil(prixBrut)); // arrondi au € supérieur
+      const prixFinal = Math.max(MINIMUM_COURSE, Math.ceil(prixBrut * REMISE)); // arrondi au € supérieur
+
+      const remiseLabel = estNuit
+        ? '🎁 Remise nuit de -25% appliquée sur cette estimation.'
+        : '🎁 Remise jour de -15% appliquée sur cette estimation.';
+      const remiseWa = estNuit ? ' (remise nuit -25% incluse)' : ' (remise jour -15% incluse)';
 
       document.getElementById('simResultLabel').textContent = commune + ' → ' + destLabel;
       document.getElementById('simResultPrice').innerHTML =
         '<span style="font-size:1.4rem;vertical-align:middle;">~</span>' + prixFinal + '<span>€</span>';
       document.getElementById('simResultNote').textContent =
         'Estimation indicative selon la réglementation préfectorale Yvelines 2026. Le tarif ferme est confirmé à la réservation.';
-      document.getElementById('simResultMajoration').textContent = '';
+      document.getElementById('simResultMajoration').textContent = remiseLabel;
 
       const waMsg = encodeURIComponent(
         'Bonjour Taxi Dari 78 ! 🚖\n\n' +
@@ -3302,7 +3310,7 @@
         (dateStr ? '📅 Date : ' + dateStr.split('-').reverse().join('/') + '\n' : '') +
         (heureStr ? '⏰ Heure : ' + heureStr + '\n' : '') +
         '🔄 Sens : ' + (sens === 'ar' ? 'Aller-retour' : 'Aller simple') + '\n' +
-        '💰 Estimation : ~' + prixFinal + ' €\n' +
+        '💰 Estimation : ~' + prixFinal + ' €' + remiseWa + '\n' +
         '📋 Tranche : ' + trancheCode + '\n\n' +
         'Merci de confirmer la disponibilité.'
       );

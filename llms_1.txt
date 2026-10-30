@@ -1,0 +1,19 @@
+# Taxi Dari 78 - Saint-Quentin-en-Yvelines (78)
+
+> Service de taxi privé, transport personnel et transferts aéroports/gares desservant l'agglomération de Saint-Quentin-en-Yvelines et ses communes limitrophes.
+
+## Zone d'intervention principale
+- Agglomération de Saint-Quentin-en-Yvelines : Montigny-le-Bretonneux, Guyancourt, Élancourt, Trappes, Voisins-le-Bretonneux, Magny-les-Hameaux, La Verrière, Coignières.
+- Villes limitrophes : Plaisir, Les Clayes-sous-Bois, Villepreux, Fontenay-le-Fleury, Versailles, Maurepas.
+
+## Services proposés
+- Transferts Aéroports : Paris-Orly, Paris-CDG, Paris-Beauvais.
+- Transferts Gares : Montparnasse, Gare de Lyon, Gare du Nord, Gare de l'Est, Gare Saint-Lazare, Gare d'Austerlitz.
+- Transports personnels et déplacements professionnels 24/7.
+- Estimation de tarif et réservation en direct sur le site web.
+
+## Non pris en charge
+- Aucun transport médical conventionné CPAM.
+
+## Site web officiel
+https://taxi-dari-78.com

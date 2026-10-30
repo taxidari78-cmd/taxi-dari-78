@@ -376,6 +376,58 @@
   }
   </script>
 
+  <!-- JSON-LD 3 : TaxiService GEO — couverture géographique pour moteurs génératifs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "Taxi Dari 78",
+    "url": "https://taxi-dari-78.com",
+    "description": "Service de taxi privé et transferts aéroports/gares à Saint-Quentin-en-Yvelines et communes environnantes.",
+    "areaServed": [
+      { "@type": "City", "name": "Montigny-le-Bretonneux" },
+      { "@type": "City", "name": "Guyancourt" },
+      { "@type": "City", "name": "Élancourt" },
+      { "@type": "City", "name": "Trappes" },
+      { "@type": "City", "name": "Voisins-le-Bretonneux" },
+      { "@type": "City", "name": "Plaisir" },
+      { "@type": "City", "name": "Villepreux" },
+      { "@type": "City", "name": "Les Clayes-sous-Bois" },
+      { "@type": "City", "name": "Maurepas" },
+      { "@type": "City", "name": "Magny-les-Hameaux" },
+      { "@type": "City", "name": "Versailles" },
+      { "@type": "City", "name": "Fontenay-le-Fleury" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de Transport",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Transfert Aéroport Orly / CDG / Beauvais depuis SQY"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Transfert Grandes Gares Parisiennes"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Transport privé et personnel 24/7"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
@@ -1584,6 +1636,7 @@
       border: 1px solid var(--gold-border);
       background: rgba(201,164,90,.03);
       padding: 40px;
+      overflow: hidden; /* évite tout débordement sur mobile */
     }
     .simulator-title {
       font-family: 'Cormorant Garamond', serif;
@@ -1693,8 +1746,28 @@
 
     @media (max-width: 768px) {
       .simulator-grid { grid-template-columns: 1fr; }
-      .simulator-wrap { padding: 28px 20px; }
-      .result-row { flex-direction: column; align-items: flex-start; }
+      .simulator-wrap { padding: 24px 16px; }
+      /* Inputs date/heure : largeur complète, pas de débordement */
+      .sim-select,
+      input[type="date"].sim-select,
+      input[type="time"].sim-select {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+      }
+      /* Résultat : tout en colonne, bouton WA pleine largeur */
+      .result-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .result-cta {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+      }
     }
 
 
@@ -2024,12 +2097,12 @@
 
             <div class="sim-field">
               <label for="simDate">Date de départ</label>
-              <input type="date" class="sim-select" id="simDate" oninput="calcSimulator()" style="background:#111111; color:var(--text); border:1px solid rgba(255,255,255,0.08); padding:12px 14px; font-family:inherit; font-size:.9rem; cursor:pointer;">
+              <input type="date" class="sim-select" id="simDate" oninput="calcSimulator()" style="background:#111111; color:var(--text); border:1px solid rgba(255,255,255,0.08); padding:12px 14px; font-family:inherit; font-size:.9rem; cursor:pointer; box-sizing:border-box; width:100%;">
             </div>
 
             <div class="sim-field">
               <label for="simHeure">Heure de départ</label>
-              <input type="time" class="sim-select" id="simHeure" oninput="calcSimulator()" style="background:#111111; color:var(--text); border:1px solid rgba(255,255,255,0.08); padding:12px 14px; font-family:inherit; font-size:.9rem; cursor:pointer;">
+              <input type="time" class="sim-select" id="simHeure" oninput="calcSimulator()" style="background:#111111; color:var(--text); border:1px solid rgba(255,255,255,0.08); padding:12px 14px; font-family:inherit; font-size:.9rem; cursor:pointer; box-sizing:border-box; width:100%;">
             </div>
 
             <div class="sim-field">
@@ -2614,6 +2687,79 @@
     </div>
 
   </section>
+
+  <!-- ─── FAQ AEO — Questions fréquentes (GEO / moteurs génératifs) ─── -->
+  <section class="wrap reveal" style="padding-top: 80px; padding-bottom: 80px;">
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:#fff; margin-bottom:8px;">Questions fréquentes</h2>
+    <p style="font-size:.85rem; color:var(--muted); margin-bottom:40px;">Tout ce que vous devez savoir avant de réserver.</p>
+
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <!-- Q1 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Comment réserver un taxi à Saint-Quentin-en-Yvelines (SQY) ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">La réservation s'effectue directement en ligne sur <a href="https://taxi-dari-78.com" style="color:var(--gold);">taxi-dari-78.com</a>. Le service couvre toutes les communes de l'agglomération (Montigny-le-Bretonneux, Guyancourt, Élancourt, Trappes, Voisins-le-Bretonneux, etc.) et les villes limitrophes (Plaisir, Fontenay-le-Fleury, Versailles) pour des trajets locaux ou des transferts aéroports et gares.</p>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Quels aéroports et gares sont desservis par Taxi Dari 78 ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Taxi Dari 78 assure les transferts 24h/7j vers les aéroports de Paris-Orly, Paris-Charles de Gaulle (CDG) et Paris-Beauvais, ainsi que vers l'ensemble des grandes gares parisiennes (Montparnasse, Gare de Lyon, Gare du Nord, St-Lazare, Gare de l'Est, Gare d'Austerlitz).</p>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Le service propose-t-il du transport médical conventionné CPAM ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Non, Taxi Dari 78 est exclusivement dédié au transport personnel, privé et professionnel. Aucun transport conventionné CPAM n'est pris en charge.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .faq-list { border-top: 1px solid var(--hairline); }
+    .faq-item { border-bottom: 1px solid var(--hairline); }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; gap: 16px; text-align: left;
+      color: #fff; font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 400; line-height: 1.4;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-chevron {
+      color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
+      transition: transform .25s;
+    }
+    .faq-q[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none; padding: 0 0 20px 0;
+      font-size: .9rem; color: var(--muted); line-height: 1.7;
+    }
+    .faq-a.open { display: block; }
+  </style>
+  <script>
+    function toggleFaq(btn) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      btn.nextElementSibling.classList.toggle('open', !expanded);
+    }
+  </script>
 
   <!-- ─── FOOTER ─── -->
   <footer>

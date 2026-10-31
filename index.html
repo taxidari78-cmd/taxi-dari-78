@@ -376,52 +376,66 @@
   }
   </script>
 
-  <!-- JSON-LD 3 : TaxiService GEO — couverture géographique pour moteurs génératifs -->
+  <!-- JSON-LD 3 : TaxiService GEO — couverture exacte 19 communes + tarifs promos + services bord -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TaxiService",
     "name": "Taxi Dari 78",
     "url": "https://taxi-dari-78.com",
-    "description": "Service de taxi privé et transferts aéroports/gares à Saint-Quentin-en-Yvelines et communes environnantes.",
+    "description": "Service de taxi privé, transferts aéroports et gares à Saint-Quentin-en-Yvelines et communes limitrophes. Remise -15% de jour et -25% de nuit sur allers simples (retour à vide). Services à bord : bouteille d'eau et chargeurs de téléphone offerts.",
     "areaServed": [
-      { "@type": "City", "name": "Montigny-le-Bretonneux" },
-      { "@type": "City", "name": "Guyancourt" },
+      { "@type": "City", "name": "Coignières" },
       { "@type": "City", "name": "Élancourt" },
-      { "@type": "City", "name": "Trappes" },
-      { "@type": "City", "name": "Voisins-le-Bretonneux" },
-      { "@type": "City", "name": "Plaisir" },
-      { "@type": "City", "name": "Villepreux" },
+      { "@type": "City", "name": "Fontenay-le-Fleury" },
+      { "@type": "City", "name": "Guyancourt" },
+      { "@type": "City", "name": "Jouars-Pontchartrain" },
+      { "@type": "City", "name": "La Verrière" },
+      { "@type": "City", "name": "Le Mesnil-Saint-Denis" },
       { "@type": "City", "name": "Les Clayes-sous-Bois" },
-      { "@type": "City", "name": "Maurepas" },
       { "@type": "City", "name": "Magny-les-Hameaux" },
+      { "@type": "City", "name": "Marly-le-Roi" },
+      { "@type": "City", "name": "Maurepas" },
+      { "@type": "City", "name": "Montigny-le-Bretonneux" },
+      { "@type": "City", "name": "Plaisir" },
+      { "@type": "City", "name": "Saint-Cyr-l'École" },
+      { "@type": "City", "name": "Saint-Nom-la-Bretèche" },
+      { "@type": "City", "name": "Trappes" },
       { "@type": "City", "name": "Versailles" },
-      { "@type": "City", "name": "Fontenay-le-Fleury" }
+      { "@type": "City", "name": "Villepreux" },
+      { "@type": "City", "name": "Voisins-le-Bretonneux" }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Bouteille d'eau offerte à bord", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Chargeurs de téléphone disponibles à bord", "value": true }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Services de Transport",
+      "name": "Services de Transport — Taxi Dari 78",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "Transfert Aéroport Orly / CDG / Beauvais depuis SQY"
-          }
+          },
+          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour (tarif A, lun-sam 08h00-19h00) ou -25% de nuit (tarif B, lun-sam 19h00-08h00, dimanches et jours fériés)."
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "Transfert Grandes Gares Parisiennes"
-          }
+          },
+          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour ou -25% de nuit."
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "Transport privé et personnel 24/7"
-          }
+          },
+          "description": "Déplacements professionnels, familiaux et personnels. Services à bord inclus : bouteille d'eau et chargeurs de téléphone."
         }
       ]
     }
@@ -1744,6 +1758,70 @@
       color: var(--gold-light);
     }
 
+    /* ── Bandeau promo permanent ── */
+    .promo-banner {
+      margin-top: 28px;
+      border: 1px solid rgba(201,164,90,.35);
+      background: rgba(201,164,90,.06);
+      padding: 20px 24px 14px;
+    }
+    .promo-banner-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .promo-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 180px;
+    }
+    .promo-tag {
+      font-size: .6rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .promo-tag--jour  { background: rgba(255,200,60,.15);  color: #f0b429; border: 1px solid rgba(240,180,41,.3); }
+    .promo-tag--nuit  { background: rgba(100,140,255,.12); color: #8fa8ff; border: 1px solid rgba(100,140,255,.3); }
+    .promo-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .promo-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .promo-desc em { font-style: normal; color: rgba(255,255,255,.35); font-size: .72rem; }
+    .promo-divider {
+      width: 1px;
+      align-self: stretch;
+      background: var(--hairline);
+      flex-shrink: 0;
+    }
+    .promo-legal {
+      margin-top: 12px;
+      font-size: .68rem;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .05em;
+    }
+    @media (max-width: 768px) {
+      .promo-divider { display: none; }
+      .promo-banner { padding: 16px; }
+      .promo-banner-inner { gap: 16px; }
+      .promo-value { font-size: 2rem; }
+    }
+
     @media (max-width: 768px) {
       .simulator-grid { grid-template-columns: 1fr; }
       .simulator-wrap { padding: 24px 16px; }
@@ -2138,6 +2216,25 @@
               </a>
             </div>
           </div>
+
+          <!-- ── Bandeau promo permanent ── -->
+          <div class="promo-banner">
+            <div class="promo-banner-inner">
+              <div class="promo-item">
+                <span class="promo-tag promo-tag--jour">☀️ Aller simple · Jour</span>
+                <span class="promo-value">−15 %</span>
+                <span class="promo-desc">sur les allers simples avec retour à vide<br><em>lun–sam 08h00–19h00</em></span>
+              </div>
+              <div class="promo-divider"></div>
+              <div class="promo-item">
+                <span class="promo-tag promo-tag--nuit">🌙 Aller simple · Nuit</span>
+                <span class="promo-value">−25 %</span>
+                <span class="promo-desc">sur les allers simples avec retour à vide<br><em>nuit, dimanche &amp; jours fériés</em></span>
+              </div>
+            </div>
+            <p class="promo-legal">Remises appliquées automatiquement dans l'estimateur ci-dessus · Tarif ferme confirmé à la réservation</p>
+          </div>
+
         </div>
 
         <div class="reveal" style="
@@ -3209,6 +3306,36 @@
       // Sinon on ouvre avec taxi.dari.78 en destinataire seulement
       document.getElementById('sendEmail').href =
         `mailto:${mailDest}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+      // ── Planification de la relance avis Google (3h après la course) ──────
+      // Appel silencieux vers /api/reserve — n'affecte pas l'UX en cas d'échec
+      (async () => {
+        try {
+          // Reconstruction ISO 8601 depuis les champs date (AAAA-MM-JJ) et heure (HH:MM)
+          const pickupISO = dateRaw && heure
+            ? new Date(`${dateRaw}T${heure}:00`).toISOString()
+            : null;
+
+          if (!pickupISO) return; // date/heure manquantes → on ne planifie pas
+
+          const emailClient = get('email');
+          const channel     = emailClient ? 'email' : 'whatsapp';
+
+          await fetch('/api/reserve', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({
+              clientName:      `${prenom} ${nom}`,
+              email:           emailClient || null,
+              phone:           tel         || null,
+              pickupDateTime:  pickupISO,
+              channel,
+            }),
+          });
+        } catch {
+          // Échec silencieux — ne jamais bloquer le parcours client
+        }
+      })();
 
       // Afficher l'écran de confirmation
       const successEl = document.getElementById('formSuccess');

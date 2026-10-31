@@ -1,19 +1,52 @@
 # Taxi Dari 78 - Saint-Quentin-en-Yvelines (78)
+# SIREN : 932 039 266 — SAS Taxi Dari 78
 
 > Service de taxi privé, transport personnel et transferts aéroports/gares desservant l'agglomération de Saint-Quentin-en-Yvelines et ses communes limitrophes.
 
-## Zone d'intervention principale
-- Agglomération de Saint-Quentin-en-Yvelines : Montigny-le-Bretonneux, Guyancourt, Élancourt, Trappes, Voisins-le-Bretonneux, Magny-les-Hameaux, La Verrière, Coignières.
-- Villes limitrophes : Plaisir, Les Clayes-sous-Bois, Villepreux, Fontenay-le-Fleury, Versailles, Maurepas.
+## Zone d'intervention — 19 communes desservies (liste exhaustive et exacte)
+- Coignières
+- Élancourt
+- Fontenay-le-Fleury
+- Guyancourt
+- Jouars-Pontchartrain
+- La Verrière
+- Le Mesnil-Saint-Denis
+- Les Clayes-sous-Bois
+- Magny-les-Hameaux
+- Marly-le-Roi
+- Maurepas
+- Montigny-le-Bretonneux
+- Plaisir
+- Saint-Cyr-l'École
+- Saint-Nom-la-Bretèche
+- Trappes
+- Versailles
+- Villepreux
+- Voisins-le-Bretonneux
 
 ## Services proposés
-- Transferts Aéroports : Paris-Orly, Paris-CDG, Paris-Beauvais.
+- Transferts Aéroports : Paris-Orly (ORY), Paris-Charles de Gaulle / Roissy CDG, Paris-Beauvais (BVA).
 - Transferts Gares : Montparnasse, Gare de Lyon, Gare du Nord, Gare de l'Est, Gare Saint-Lazare, Gare d'Austerlitz.
-- Transports personnels et déplacements professionnels 24/7.
-- Estimation de tarif et réservation en direct sur le site web.
+- Transports personnels et déplacements professionnels 24h/7j.
+- Estimation de tarif en ligne et réservation directe sur le site web.
+
+## Tarification et promotions commerciales
+- Tarification préfectorale Yvelines 2026 — 4 codes tarifaires (A, B, C, D) selon sens et horaire.
+- Remise de jour : -15% sur les allers simples avec retour à vide (Tarif C, lun-sam 08h00-19h00).
+- Remise de nuit : -25% sur les allers simples avec retour à vide (Tarif D, lun-sam 19h00-08h00, dimanches et jours fériés).
+- Tarif ferme confirmé à la réservation — estimation indicative disponible en ligne.
+- Prise en charge : 3 € — Minimum de course : 8 €.
+
+## Services à bord (offerts gratuitement à chaque client)
+- Bouteille d'eau minérale offerte.
+- Chargeurs de téléphone disponibles à bord (USB / USB-C).
 
 ## Non pris en charge
 - Aucun transport médical conventionné CPAM.
+
+## Véhicules disponibles
+- Berline Premium (06 95 60 59 60)
+- SUV Renault Espace — Confort famille et groupe (06 81 42 96 80 / WhatsApp)
 
 ## Site web officiel
 https://taxi-dari-78.com

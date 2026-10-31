@@ -2168,7 +2168,14 @@
                   <option value="orly">Aéroport Orly (ORY)</option>
                   <option value="cdg">Aéroport Roissy CDG</option>
                   <option value="beauvais">Aéroport Beauvais-Tillé</option>
-                  <option value="gares">Grandes Gares Parisiennes</option>
+                  <optgroup label="── Grandes Gares Parisiennes ──">
+                    <option value="montparnasse">Gare Montparnasse</option>
+                    <option value="lyon">Gare de Lyon</option>
+                    <option value="nord">Gare du Nord</option>
+                    <option value="est">Gare de l'Est</option>
+                    <option value="stlazare">Gare Saint-Lazare</option>
+                    <option value="austerlitz">Gare d'Austerlitz</option>
+                  </optgroup>
                 </select>
               </div>
             </div>
@@ -3380,32 +3387,37 @@
     // Distances kilométriques en charge par commune vers chaque destination
     // Source : estimation itinéraire réel (A86 / Francilienne)
     const simDistances = {
-      'Trappes':                  { orly: 28, cdg: 58, gares: 32, beauvais: 115 },
-      'La Verrière':              { orly: 30, cdg: 60, gares: 34, beauvais: 117 },
-      'Montigny-le-Bretonneux':   { orly: 31, cdg: 61, gares: 35, beauvais: 118 },
-      'Guyancourt':               { orly: 32, cdg: 62, gares: 36, beauvais: 119 },
-      'Élancourt':                { orly: 32, cdg: 62, gares: 36, beauvais: 119 },
-      'Coignières':               { orly: 32, cdg: 62, gares: 36, beauvais: 119 },
-      'Voisins-le-Bretonneux':    { orly: 31, cdg: 61, gares: 35, beauvais: 118 },
-      'Maurepas':                 { orly: 33, cdg: 63, gares: 37, beauvais: 120 },
-      'Fontenay-le-Fleury':       { orly: 32, cdg: 62, gares: 36, beauvais: 119 },
-      'Magny-les-Hameaux':        { orly: 32, cdg: 62, gares: 36, beauvais: 119 },
-      'Villepreux':               { orly: 33, cdg: 63, gares: 37, beauvais: 120 },
-      'Versailles':               { orly: 34, cdg: 64, gares: 38, beauvais: 121 },
-      'Les Clayes-sous-Bois':     { orly: 35, cdg: 65, gares: 39, beauvais: 122 },
-      'Plaisir':                  { orly: 36, cdg: 66, gares: 40, beauvais: 123 },
-      'Jouars-Pontchartrain':     { orly: 36, cdg: 68, gares: 40, beauvais: 124 },
-      'Le Mesnil-Saint-Denis':    { orly: 35, cdg: 65, gares: 39, beauvais: 122 },
-      "Saint-Cyr-l'École":        { orly: 31, cdg: 61, gares: 35, beauvais: 118 },
-      'Marly-le-Roi':             { orly: 32, cdg: 58, gares: 36, beauvais: 119 },
-      'Saint-Nom-la-Bretèche':    { orly: 35, cdg: 61, gares: 39, beauvais: 122 },
+      'Trappes':                  { orly: 28, cdg: 58, beauvais: 115, montparnasse: 36, lyon: 39, nord: 52, est: 53, stlazare: 46, austerlitz: 42 },
+      'La Verrière':              { orly: 30, cdg: 60, beauvais: 117, montparnasse: 38, lyon: 41, nord: 54, est: 55, stlazare: 48, austerlitz: 44 },
+      'Montigny-le-Bretonneux':   { orly: 31, cdg: 61, beauvais: 118, montparnasse: 35, lyon: 38, nord: 51, est: 52, stlazare: 45, austerlitz: 41 },
+      'Guyancourt':               { orly: 32, cdg: 62, beauvais: 119, montparnasse: 34, lyon: 37, nord: 50, est: 51, stlazare: 44, austerlitz: 40 },
+      'Élancourt':                { orly: 32, cdg: 62, beauvais: 119, montparnasse: 36, lyon: 39, nord: 52, est: 53, stlazare: 46, austerlitz: 42 },
+      'Coignières':               { orly: 32, cdg: 62, beauvais: 119, montparnasse: 37, lyon: 40, nord: 53, est: 54, stlazare: 47, austerlitz: 43 },
+      'Voisins-le-Bretonneux':    { orly: 31, cdg: 61, beauvais: 118, montparnasse: 33, lyon: 36, nord: 49, est: 50, stlazare: 43, austerlitz: 39 },
+      'Maurepas':                 { orly: 33, cdg: 63, beauvais: 120, montparnasse: 38, lyon: 41, nord: 54, est: 55, stlazare: 48, austerlitz: 44 },
+      'Fontenay-le-Fleury':       { orly: 32, cdg: 62, beauvais: 119, montparnasse: 31, lyon: 34, nord: 47, est: 48, stlazare: 41, austerlitz: 37 },
+      'Magny-les-Hameaux':        { orly: 32, cdg: 62, beauvais: 119, montparnasse: 34, lyon: 37, nord: 50, est: 51, stlazare: 44, austerlitz: 40 },
+      'Villepreux':               { orly: 33, cdg: 63, beauvais: 120, montparnasse: 32, lyon: 35, nord: 48, est: 49, stlazare: 42, austerlitz: 38 },
+      'Versailles':               { orly: 34, cdg: 64, beauvais: 121, montparnasse: 28, lyon: 31, nord: 44, est: 45, stlazare: 38, austerlitz: 34 },
+      'Les Clayes-sous-Bois':     { orly: 35, cdg: 65, beauvais: 122, montparnasse: 36, lyon: 39, nord: 52, est: 53, stlazare: 46, austerlitz: 42 },
+      'Plaisir':                  { orly: 36, cdg: 66, beauvais: 123, montparnasse: 38, lyon: 41, nord: 54, est: 55, stlazare: 48, austerlitz: 44 },
+      'Jouars-Pontchartrain':     { orly: 36, cdg: 68, beauvais: 124, montparnasse: 44, lyon: 47, nord: 60, est: 61, stlazare: 54, austerlitz: 50 },
+      'Le Mesnil-Saint-Denis':    { orly: 35, cdg: 65, beauvais: 122, montparnasse: 35, lyon: 38, nord: 51, est: 52, stlazare: 45, austerlitz: 41 },
+      "Saint-Cyr-l'École":        { orly: 31, cdg: 61, beauvais: 118, montparnasse: 29, lyon: 32, nord: 45, est: 46, stlazare: 39, austerlitz: 35 },
+      'Marly-le-Roi':             { orly: 32, cdg: 58, beauvais: 119, montparnasse: 27, lyon: 30, nord: 43, est: 44, stlazare: 37, austerlitz: 33 },
+      'Saint-Nom-la-Bretèche':    { orly: 35, cdg: 61, beauvais: 122, montparnasse: 32, lyon: 35, nord: 48, est: 49, stlazare: 42, austerlitz: 38 },
     };
 
     const simDestLabels = {
-      orly:     'Aéroport Orly (ORY)',
-      cdg:      'Aéroport Roissy CDG',
-      beauvais: 'Aéroport Beauvais-Tillé',
-      gares:    'Grandes Gares Parisiennes',
+      orly:          'Aéroport Orly (ORY)',
+      cdg:           'Aéroport Roissy CDG',
+      beauvais:      'Aéroport Beauvais-Tillé',
+      montparnasse:  'Gare Montparnasse',
+      lyon:          'Gare de Lyon',
+      nord:          'Gare du Nord',
+      est:           "Gare de l'Est",
+      stlazare:      'Gare Saint-Lazare',
+      austerlitz:    "Gare d'Austerlitz",
     };
 
     // Jours fériés légaux français — calculés dynamiquement pour l'année en cours

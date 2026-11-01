@@ -419,7 +419,7 @@
             "@type": "Service",
             "name": "Transfert Aéroport Orly / CDG / Beauvais depuis SQY"
           },
-          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour (tarif A, lun-sam 08h00-19h00) ou -25% de nuit (tarif B, lun-sam 19h00-08h00, dimanches et jours fériés)."
+          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour (tarif C, lun-sam 08h00-19h00) ou -25% de nuit (tarif D, lun-sam 19h00-08h00, dimanches et jours fériés). Aller-retour sans remise."
         },
         {
           "@type": "Offer",
@@ -427,7 +427,7 @@
             "@type": "Service",
             "name": "Transfert Grandes Gares Parisiennes"
           },
-          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour ou -25% de nuit."
+          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour (tarif C) ou -25% de nuit (tarif D). Aller-retour sans remise."
         },
         {
           "@type": "Offer",
@@ -2133,51 +2133,25 @@
 
           <div class="simulator-grid">
             <div class="sim-field">
-              <label>Commune de départ</label>
+              <label>Sens du trajet</label>
               <div class="sim-select-wrap">
-                <select class="sim-select" id="simCommune" onchange="calcSimulator()">
-                  <option value="">-- Choisir --</option>
-                  <option value="Coignières">Coignières</option>
-                  <option value="Élancourt">Élancourt</option>
-                  <option value="Fontenay-le-Fleury">Fontenay-le-Fleury</option>
-                  <option value="Guyancourt">Guyancourt</option>
-                  <option value="Jouars-Pontchartrain">Jouars-Pontchartrain</option>
-                  <option value="Les Clayes-sous-Bois">Les Clayes-sous-Bois</option>
-                  <option value="Le Mesnil-Saint-Denis">Le Mesnil-Saint-Denis</option>
-                  <option value="La Verrière">La Verrière</option>
-                  <option value="Magny-les-Hameaux">Magny-les-Hameaux</option>
-                  <option value="Marly-le-Roi">Marly-le-Roi</option>
-                  <option value="Maurepas">Maurepas</option>
-                  <option value="Montigny-le-Bretonneux">Montigny-le-Bretonneux</option>
-                  <option value="Plaisir">Plaisir</option>
-                  <option value="Saint-Cyr-l'École">Saint-Cyr-l'École</option>
-                  <option value="Saint-Nom-la-Bretèche">Saint-Nom-la-Bretèche</option>
-                  <option value="Trappes">Trappes</option>
-                  <option value="Versailles">Versailles</option>
-                  <option value="Villepreux">Villepreux</option>
-                  <option value="Voisins-le-Bretonneux">Voisins-le-Bretonneux</option>
+                <select class="sim-select" id="simSens" onchange="calcSimulator()">
+                  <option value="commune_dest">🏠 → ✈️ Depuis ma commune vers aéroport/gare</option>
+                  <option value="dest_commune">✈️ → 🏠 Depuis aéroport/gare vers ma commune</option>
                 </select>
               </div>
             </div>
 
+            <!-- Champ 1 : Départ (commune ou aéroport/gare selon sens) -->
             <div class="sim-field">
-              <label>Destination</label>
-              <div class="sim-select-wrap">
-                <select class="sim-select" id="simDest" onchange="calcSimulator()">
-                  <option value="">-- Choisir --</option>
-                  <option value="orly">Aéroport Orly (ORY)</option>
-                  <option value="cdg">Aéroport Roissy CDG</option>
-                  <option value="beauvais">Aéroport Beauvais-Tillé</option>
-                  <optgroup label="── Grandes Gares Parisiennes ──">
-                    <option value="montparnasse">Gare Montparnasse</option>
-                    <option value="lyon">Gare de Lyon</option>
-                    <option value="nord">Gare du Nord</option>
-                    <option value="est">Gare de l'Est</option>
-                    <option value="stlazare">Gare Saint-Lazare</option>
-                    <option value="austerlitz">Gare d'Austerlitz</option>
-                  </optgroup>
-                </select>
-              </div>
+              <label id="simLabelDepart">Commune de départ</label>
+              <div class="sim-select-wrap" id="simWrapDepart"></div>
+            </div>
+
+            <!-- Champ 2 : Destination (aéroport/gare ou commune selon sens) -->
+            <div class="sim-field">
+              <label id="simLabelDest">Destination</label>
+              <div class="sim-select-wrap" id="simWrapDest"></div>
             </div>
 
             <div class="sim-field">
@@ -2188,16 +2162,6 @@
             <div class="sim-field">
               <label for="simHeure">Heure de départ</label>
               <input type="time" class="sim-select" id="simHeure" oninput="calcSimulator()" style="background:#111111; color:var(--text); border:1px solid rgba(255,255,255,0.08); padding:12px 14px; font-family:inherit; font-size:.9rem; cursor:pointer; box-sizing:border-box; width:100%;">
-            </div>
-
-            <div class="sim-field">
-              <label>Sens du trajet</label>
-              <div class="sim-select-wrap">
-                <select class="sim-select" id="simSens" onchange="calcSimulator()">
-                  <option value="ar">Aller-retour (retour en charge)</option>
-                  <option value="as">Aller simple (retour à vide)</option>
-                </select>
-              </div>
             </div>
 
             <!-- Indicateur de tranche détectée -->
@@ -3387,25 +3351,26 @@
     // Distances kilométriques en charge par commune vers chaque destination
     // Source : estimation itinéraire réel (A86 / Francilienne)
     const simDistances = {
-      'Trappes':                  { orly: 28, cdg: 58, beauvais: 115, montparnasse: 36, lyon: 39, nord: 52, est: 53, stlazare: 46, austerlitz: 42 },
-      'La Verrière':              { orly: 30, cdg: 60, beauvais: 117, montparnasse: 38, lyon: 41, nord: 54, est: 55, stlazare: 48, austerlitz: 44 },
-      'Montigny-le-Bretonneux':   { orly: 31, cdg: 61, beauvais: 118, montparnasse: 35, lyon: 38, nord: 51, est: 52, stlazare: 45, austerlitz: 41 },
-      'Guyancourt':               { orly: 32, cdg: 62, beauvais: 119, montparnasse: 34, lyon: 37, nord: 50, est: 51, stlazare: 44, austerlitz: 40 },
-      'Élancourt':                { orly: 32, cdg: 62, beauvais: 119, montparnasse: 36, lyon: 39, nord: 52, est: 53, stlazare: 46, austerlitz: 42 },
-      'Coignières':               { orly: 32, cdg: 62, beauvais: 119, montparnasse: 37, lyon: 40, nord: 53, est: 54, stlazare: 47, austerlitz: 43 },
-      'Voisins-le-Bretonneux':    { orly: 31, cdg: 61, beauvais: 118, montparnasse: 33, lyon: 36, nord: 49, est: 50, stlazare: 43, austerlitz: 39 },
-      'Maurepas':                 { orly: 33, cdg: 63, beauvais: 120, montparnasse: 38, lyon: 41, nord: 54, est: 55, stlazare: 48, austerlitz: 44 },
-      'Fontenay-le-Fleury':       { orly: 32, cdg: 62, beauvais: 119, montparnasse: 31, lyon: 34, nord: 47, est: 48, stlazare: 41, austerlitz: 37 },
-      'Magny-les-Hameaux':        { orly: 32, cdg: 62, beauvais: 119, montparnasse: 34, lyon: 37, nord: 50, est: 51, stlazare: 44, austerlitz: 40 },
-      'Villepreux':               { orly: 33, cdg: 63, beauvais: 120, montparnasse: 32, lyon: 35, nord: 48, est: 49, stlazare: 42, austerlitz: 38 },
-      'Versailles':               { orly: 34, cdg: 64, beauvais: 121, montparnasse: 28, lyon: 31, nord: 44, est: 45, stlazare: 38, austerlitz: 34 },
-      'Les Clayes-sous-Bois':     { orly: 35, cdg: 65, beauvais: 122, montparnasse: 36, lyon: 39, nord: 52, est: 53, stlazare: 46, austerlitz: 42 },
-      'Plaisir':                  { orly: 36, cdg: 66, beauvais: 123, montparnasse: 38, lyon: 41, nord: 54, est: 55, stlazare: 48, austerlitz: 44 },
-      'Jouars-Pontchartrain':     { orly: 36, cdg: 68, beauvais: 124, montparnasse: 44, lyon: 47, nord: 60, est: 61, stlazare: 54, austerlitz: 50 },
-      'Le Mesnil-Saint-Denis':    { orly: 35, cdg: 65, beauvais: 122, montparnasse: 35, lyon: 38, nord: 51, est: 52, stlazare: 45, austerlitz: 41 },
-      "Saint-Cyr-l'École":        { orly: 31, cdg: 61, beauvais: 118, montparnasse: 29, lyon: 32, nord: 45, est: 46, stlazare: 39, austerlitz: 35 },
-      'Marly-le-Roi':             { orly: 32, cdg: 58, beauvais: 119, montparnasse: 27, lyon: 30, nord: 43, est: 44, stlazare: 37, austerlitz: 33 },
-      'Saint-Nom-la-Bretèche':    { orly: 35, cdg: 61, beauvais: 122, montparnasse: 32, lyon: 35, nord: 48, est: 49, stlazare: 42, austerlitz: 38 },
+      // Distances réelles (km, valeur max aller/retour) — source Google Maps via Gemini, nov. 2026
+      'Trappes':                  { orly: 39, cdg: 52, beauvais: 91,  montparnasse: 33, lyon: 42, nord: 42, est: 43, stlazare: 39, austerlitz: 40 },
+      'La Verrière':              { orly: 42, cdg: 56, beauvais: 95,  montparnasse: 37, lyon: 46, nord: 46, est: 47, stlazare: 43, austerlitz: 44 },
+      'Montigny-le-Bretonneux':   { orly: 39, cdg: 52, beauvais: 91,  montparnasse: 33, lyon: 42, nord: 42, est: 43, stlazare: 39, austerlitz: 40 },
+      'Guyancourt':               { orly: 36, cdg: 49, beauvais: 88,  montparnasse: 30, lyon: 39, nord: 39, est: 40, stlazare: 36, austerlitz: 37 },
+      'Élancourt':                { orly: 42, cdg: 55, beauvais: 94,  montparnasse: 36, lyon: 45, nord: 45, est: 46, stlazare: 42, austerlitz: 43 },
+      'Coignières':               { orly: 44, cdg: 58, beauvais: 97,  montparnasse: 39, lyon: 48, nord: 48, est: 49, stlazare: 45, austerlitz: 46 },
+      'Voisins-le-Bretonneux':    { orly: 37, cdg: 50, beauvais: 89,  montparnasse: 31, lyon: 40, nord: 40, est: 41, stlazare: 37, austerlitz: 38 },
+      'Maurepas':                 { orly: 43, cdg: 56, beauvais: 95,  montparnasse: 37, lyon: 46, nord: 46, est: 47, stlazare: 43, austerlitz: 44 },
+      'Fontenay-le-Fleury':       { orly: 39, cdg: 48, beauvais: 86,  montparnasse: 31, lyon: 40, nord: 38, est: 39, stlazare: 35, austerlitz: 38 },
+      'Magny-les-Hameaux':        { orly: 38, cdg: 52, beauvais: 91,  montparnasse: 33, lyon: 42, nord: 42, est: 43, stlazare: 39, austerlitz: 40 },
+      'Villepreux':               { orly: 42, cdg: 50, beauvais: 88,  montparnasse: 34, lyon: 43, nord: 40, est: 42, stlazare: 37, austerlitz: 41 },
+      'Versailles':               { orly: 30, cdg: 44, beauvais: 83,  montparnasse: 22, lyon: 31, nord: 34, est: 35, stlazare: 30, austerlitz: 29 },
+      'Les Clayes-sous-Bois':     { orly: 43, cdg: 51, beauvais: 89,  montparnasse: 35, lyon: 44, nord: 41, est: 43, stlazare: 38, austerlitz: 42 },
+      'Plaisir':                  { orly: 43, cdg: 53, beauvais: 91,  montparnasse: 36, lyon: 45, nord: 43, est: 44, stlazare: 40, austerlitz: 43 },
+      'Jouars-Pontchartrain':     { orly: 46, cdg: 57, beauvais: 95,  montparnasse: 40, lyon: 49, nord: 47, est: 48, stlazare: 44, austerlitz: 47 },
+      'Le Mesnil-Saint-Denis':    { orly: 42, cdg: 55, beauvais: 93,  montparnasse: 36, lyon: 45, nord: 45, est: 46, stlazare: 42, austerlitz: 43 },
+      "Saint-Cyr-l'École":        { orly: 36, cdg: 47, beauvais: 85,  montparnasse: 29, lyon: 38, nord: 37, est: 38, stlazare: 34, austerlitz: 36 },
+      'Marly-le-Roi':             { orly: 37, cdg: 43, beauvais: 81,  montparnasse: 30, lyon: 39, nord: 33, est: 34, stlazare: 30, austerlitz: 37 },
+      'Saint-Nom-la-Bretèche':    { orly: 42, cdg: 47, beauvais: 85,  montparnasse: 35, lyon: 44, nord: 37, est: 39, stlazare: 34, austerlitz: 41 },
     };
 
     const simDestLabels = {
@@ -3499,12 +3464,93 @@
       return { tarif, label: labels[tarif], tarifKm: tarifKm[tarif], estFerie, estDimanche, nuit };
     }
 
+    // ── HTML des listes ────────────────────────────────────────────────
+    const HTML_COMMUNES = `
+      <select class="sim-select" id="simCommune" onchange="calcSimulator()">
+        <option value="">-- Choisir --</option>
+        <option value="Coignières">Coignières</option>
+        <option value="Élancourt">Élancourt</option>
+        <option value="Fontenay-le-Fleury">Fontenay-le-Fleury</option>
+        <option value="Guyancourt">Guyancourt</option>
+        <option value="Jouars-Pontchartrain">Jouars-Pontchartrain</option>
+        <option value="Les Clayes-sous-Bois">Les Clayes-sous-Bois</option>
+        <option value="Le Mesnil-Saint-Denis">Le Mesnil-Saint-Denis</option>
+        <option value="La Verrière">La Verrière</option>
+        <option value="Magny-les-Hameaux">Magny-les-Hameaux</option>
+        <option value="Marly-le-Roi">Marly-le-Roi</option>
+        <option value="Maurepas">Maurepas</option>
+        <option value="Montigny-le-Bretonneux">Montigny-le-Bretonneux</option>
+        <option value="Plaisir">Plaisir</option>
+        <option value="Saint-Cyr-l'École">Saint-Cyr-l'École</option>
+        <option value="Saint-Nom-la-Bretèche">Saint-Nom-la-Bretèche</option>
+        <option value="Trappes">Trappes</option>
+        <option value="Versailles">Versailles</option>
+        <option value="Villepreux">Villepreux</option>
+        <option value="Voisins-le-Bretonneux">Voisins-le-Bretonneux</option>
+      </select>`;
+
+    const HTML_DESTINATIONS = `
+      <select class="sim-select" id="simDest" onchange="calcSimulator()">
+        <option value="">-- Choisir --</option>
+        <option value="orly">Aéroport Orly (ORY)</option>
+        <option value="cdg">Aéroport Roissy CDG</option>
+        <option value="beauvais">Aéroport Beauvais-Tillé</option>
+        <optgroup label="── Grandes Gares Parisiennes ──">
+          <option value="montparnasse">Gare Montparnasse</option>
+          <option value="lyon">Gare de Lyon</option>
+          <option value="nord">Gare du Nord</option>
+          <option value="est">Gare de l'Est</option>
+          <option value="stlazare">Gare Saint-Lazare</option>
+          <option value="austerlitz">Gare d'Austerlitz</option>
+        </optgroup>
+      </select>`;
+
+    function updateSimFields() {
+      const sens = document.getElementById('simSens').value;
+      const wrapDepart  = document.getElementById('simWrapDepart');
+      const wrapDest    = document.getElementById('simWrapDest');
+      const labelDepart = document.getElementById('simLabelDepart');
+      const labelDest   = document.getElementById('simLabelDest');
+
+      if (sens === 'commune_dest') {
+        labelDepart.textContent = 'Commune de départ';
+        labelDest.textContent   = 'Destination';
+        wrapDepart.innerHTML = HTML_COMMUNES;
+        wrapDest.innerHTML   = HTML_DESTINATIONS;
+      } else {
+        labelDepart.textContent = 'Aéroport / Gare de départ';
+        labelDest.textContent   = 'Commune de destination';
+        wrapDepart.innerHTML = HTML_DESTINATIONS;
+        wrapDest.innerHTML   = HTML_COMMUNES;
+      }
+    }
+
+    // Initialisation — appelé directement (script en bas de page, DOM déjà prêt)
+    // + fallback DOMContentLoaded au cas où
+    function initSimulator() {
+      if (!document.getElementById('simWrapDepart')) return;
+      updateSimFields();
+      document.getElementById('simSens').addEventListener('change', () => {
+        updateSimFields();
+        document.getElementById('simResult').classList.remove('visible');
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSimulator);
+    } else {
+      initSimulator();
+    }
+
     function calcSimulator() {
-      const commune  = document.getElementById('simCommune').value;
-      const dest     = document.getElementById('simDest').value;
+      const sensTrajet = document.getElementById('simSens').value;
+
+      // Les ids restent fixes (simCommune = communes, simDest = aéroports/gares)
+      // quel que soit le sens — seul l'ordre visuel dans le formulaire change.
+      const commune = (document.getElementById('simCommune') || {}).value || '';
+      const dest    = (document.getElementById('simDest')    || {}).value || '';
+
       const dateStr  = document.getElementById('simDate').value;
       const heureStr = document.getElementById('simHeure').value;
-      const sens     = document.getElementById('simSens').value;
       const resultEl = document.getElementById('simResult');
       const trancheInfoEl = document.getElementById('simTrancheInfo');
       const trancheLabelEl = document.getElementById('simTrancheLabel');
@@ -3520,11 +3566,16 @@
 
       // Beauvais = sur devis (longue distance)
       if (dest === 'beauvais') {
-        document.getElementById('simResultLabel').textContent = commune + ' → ' + destLabel;
+        const labelBeauvais = sensTrajet === 'dest_commune'
+          ? destLabel + ' → ' + commune
+          : commune + ' → ' + destLabel;
+        const departBeauvais  = sensTrajet === 'dest_commune' ? destLabel : commune;
+        const arriveeBeauvais = sensTrajet === 'dest_commune' ? commune : destLabel;
+        document.getElementById('simResultLabel').textContent = labelBeauvais;
         document.getElementById('simResultPrice').innerHTML = '<span class="result-devis">Sur devis</span>';
         document.getElementById('simResultNote').textContent = 'Beauvais-Tillé est une longue distance. Contactez-nous pour un devis personnalisé — tarif ferme confirmé à la réservation.';
         document.getElementById('simResultMajoration').textContent = '';
-        const waMsg = encodeURIComponent('Bonjour, je souhaite un devis pour un trajet ' + commune + ' → Aéroport Beauvais-Tillé. Merci.');
+        const waMsg = encodeURIComponent('Bonjour, je souhaite un devis pour un trajet ' + departBeauvais + ' → ' + arriveeBeauvais + '. Merci.');
         document.getElementById('simWhatsapp').href = 'https://wa.me/33681429680?text=' + waMsg;
         resultEl.classList.add('visible');
         trancheInfoEl.style.display = 'none';
@@ -3537,7 +3588,7 @@
       const distKm = distances[dest];
 
       // Détection de tranche (si date+heure renseignées)
-      const tranche = detectTranche(dateStr, heureStr, sens);
+      const tranche = detectTranche(dateStr, heureStr, 'as'); // toujours aller simple
 
       let tarifKm, trancheLabel, trancheCode;
       if (tranche) {
@@ -3549,11 +3600,17 @@
       } else {
         // Pas de date/heure → on affiche les deux bornes (jour / nuit)
         trancheInfoEl.style.display = 'none';
-        const tarifJour = sens === 'ar' ? 1.00 : 2.00;
-        const tarifNuit = sens === 'ar' ? 1.50 : 3.00;
-        const prixJour  = Math.max(MINIMUM_COURSE, Math.round((PRISE_EN_CHARGE + distKm * tarifJour) * 100) / 100);
-        const prixNuit  = Math.max(MINIMUM_COURSE, Math.round((PRISE_EN_CHARGE + distKm * tarifNuit) * 100) / 100);
-        document.getElementById('simResultLabel').textContent = commune + ' → ' + destLabel;
+        // Aller simple uniquement : tarif C (jour) ou D (nuit) avec remise
+        const tarifJour = 2.00;
+        const tarifNuit = 3.00;
+        const prixJour  = Math.max(MINIMUM_COURSE, Math.ceil((PRISE_EN_CHARGE + distKm * tarifJour) * 0.85));
+        const prixNuit  = Math.max(MINIMUM_COURSE, Math.ceil((PRISE_EN_CHARGE + distKm * tarifNuit) * 0.75));
+        const labelTrajet = sensTrajet === 'dest_commune'
+          ? destLabel + ' → ' + commune
+          : commune + ' → ' + destLabel;
+        const departLabel  = sensTrajet === 'dest_commune' ? destLabel : commune;
+        const arriveeLabel = sensTrajet === 'dest_commune' ? commune : destLabel;
+        document.getElementById('simResultLabel').textContent = labelTrajet;
         document.getElementById('simResultPrice').innerHTML =
           '<span style="font-size:1.4rem;vertical-align:middle;">~</span>' +
           prixJour + '<span>€</span>' +
@@ -3562,25 +3619,38 @@
           'Estimation indicative selon la réglementation préfectorale Yvelines 2026. Le tarif ferme est confirmé à la réservation.';
         document.getElementById('simResultMajoration').textContent =
           'Renseignez la date et l\'heure pour un calcul précis selon votre tranche horaire (jour / nuit).';
-        const waMsg = encodeURIComponent('Bonjour Taxi Dari 78 ! 🚖\n\nJe souhaite réserver le trajet :\n📍 Départ : ' + commune + '\n🏁 Destination : ' + destLabel + '\n\nMerci de me confirmer le tarif et la disponibilité.');
+        const waMsg = encodeURIComponent('Bonjour Taxi Dari 78 ! 🚖\n\nJe souhaite réserver le trajet :\n📍 Départ : ' + departLabel + '\n🏁 Destination : ' + arriveeLabel + '\n\nMerci de me confirmer le tarif et la disponibilité.');
         document.getElementById('simWhatsapp').href = 'https://wa.me/33681429680?text=' + waMsg;
         resultEl.classList.add('visible');
         return;
       }
 
       // Prix final = max(8€, prise_en_charge + distance × tarif_km)
-      // Remise commerciale : -15% tarifs jour (A/C) · -25% tarifs nuit (B/D)
-      const estNuit = (trancheCode === 'B' || trancheCode === 'D');
-      const REMISE   = estNuit ? 0.75 : 0.85;
+      // Remise commerciale : uniquement sur les allers simples (retour à vide)
+      //   Tarif C (AS jour)  → -15%   |   Tarif D (AS nuit) → -25%
+      //   Tarif A (AR jour)  → aucune |   Tarif B (AR nuit)  → aucune
+      const estAllerSimple = (trancheCode === 'C' || trancheCode === 'D');
+      const estNuit        = (trancheCode === 'B' || trancheCode === 'D');
+      const REMISE   = estAllerSimple ? (estNuit ? 0.75 : 0.85) : 1.00;
       const prixBrut  = PRISE_EN_CHARGE + distKm * tarifKm;
       const prixFinal = Math.max(MINIMUM_COURSE, Math.ceil(prixBrut * REMISE)); // arrondi au € supérieur
 
-      const remiseLabel = estNuit
-        ? '🎁 Remise nuit de -25% appliquée sur cette estimation.'
-        : '🎁 Remise jour de -15% appliquée sur cette estimation.';
-      const remiseWa = estNuit ? ' (remise nuit -25% incluse)' : ' (remise jour -15% incluse)';
+      const remiseLabel = estAllerSimple
+        ? (estNuit
+            ? '🎁 Remise nuit de -25% appliquée sur cette estimation.'
+            : '🎁 Remise jour de -15% appliquée sur cette estimation.')
+        : '';
+      const remiseWa = estAllerSimple
+        ? (estNuit ? ' (remise nuit -25% incluse)' : ' (remise jour -15% incluse)')
+        : '';
 
-      document.getElementById('simResultLabel').textContent = commune + ' → ' + destLabel;
+      const labelTrajet  = sensTrajet === 'dest_commune'
+        ? destLabel + ' → ' + commune
+        : commune + ' → ' + destLabel;
+      const departLabel  = sensTrajet === 'dest_commune' ? destLabel : commune;
+      const arriveeLabel = sensTrajet === 'dest_commune' ? commune : destLabel;
+
+      document.getElementById('simResultLabel').textContent = labelTrajet;
       document.getElementById('simResultPrice').innerHTML =
         '<span style="font-size:1.4rem;vertical-align:middle;">~</span>' + prixFinal + '<span>€</span>';
       document.getElementById('simResultNote').textContent =
@@ -3590,11 +3660,11 @@
       const waMsg = encodeURIComponent(
         'Bonjour Taxi Dari 78 ! 🚖\n\n' +
         'Je souhaite réserver le trajet suivant :\n' +
-        '📍 Départ : ' + commune + '\n' +
-        '🏁 Destination : ' + destLabel + '\n' +
+        '📍 Départ : ' + departLabel + '\n' +
+        '🏁 Destination : ' + arriveeLabel + '\n' +
         (dateStr ? '📅 Date : ' + dateStr.split('-').reverse().join('/') + '\n' : '') +
         (heureStr ? '⏰ Heure : ' + heureStr + '\n' : '') +
-        '🔄 Sens : ' + (sens === 'ar' ? 'Aller-retour' : 'Aller simple') + '\n' +
+        '🔄 Sens : Aller simple\n' +
         '💰 Estimation : ~' + prixFinal + ' €' + remiseWa + '\n' +
         '📋 Tranche : ' + trancheCode + '\n\n' +
         'Merci de confirmer la disponibilité.'

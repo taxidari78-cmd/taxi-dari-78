@@ -35,287 +35,220 @@
   <!-- Favicon SVG inline -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23050505'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' fill='%23c9a45a'>T</text></svg>">
 
-  <!-- JSON-LD 1 : TaxiService enrichi GEO + Catalogue offres -->
+  <!-- JSON-LD 1 : LocalBusiness + TaxiService — données structurées enrichies GEO/AEO -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TaxiService",
-  "name": "Taxi Dari 78",
-  "legalName": "SAS TAXI DARI 78",
-  "description": "Taxi Dari 78 : chauffeur privé 24h/7j au départ de Saint-Quentin-en-Yvelines, Versailles et toute l'Île-de-France. Transferts aéroports Orly, Roissy CDG et Beauvais-Tillé. Déplacements professionnels, trajets privés et familiaux. Accueil personnalisé en gare et aéroport, véhicules récents, tarif ferme confirmé avant la course.",
-  "url": "https://www.taxi-dari-78.com/",
-  "telephone": "+33681429680",
-  "email": "Reservation-taxi.sqy@gmx.fr",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Cash, Credit Card, American Express",
-  "openingHours": "Mo-Su 00:00-24:00",
-  "hasMap": "https://maps.google.com/?q=SAS+TAXI+DARI+78+Fontenay-le-Fleury",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "SAS Taxi Dari 78",
-    "image": "https://www.taxi-dari-78.com/taxi_photos.png",
+  {
+    "@context": "https://schema.org",
+    "@type": ["TaxiService", "LocalBusiness"],
+    "name": "Taxi Dari 78",
+    "legalName": "SAS TAXI DARI 78",
+    "description": "Taxi Dari 78 : artisan taxi agréé (ADS Yvelines), disponible 24h/7j au départ de Saint-Quentin-en-Yvelines, Versailles et communes limitrophes. Transferts vers Orly, Roissy CDG, Beauvais-Tillé et toutes les grandes gares parisiennes. Tarif préfectoral Yvelines 2026, remise -15% de jour et -25% de nuit sur allers simples. Tarif ferme confirmé à la réservation.",
+    "url": "https://www.taxi-dari-78.com/",
     "telephone": "+33681429680",
-    "url": "https://www.taxi-dari-78.com",
+    "email": "Reservation-taxi.sqy@gmx.fr",
     "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card, American Express",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "image": "https://i.ibb.co/8nZDyTsN/taxi-photos.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1 Rue Jules Massenet",
       "addressLocality": "Fontenay-le-Fleury",
       "postalCode": "78330",
+      "addressRegion": "Yvelines",
       "addressCountry": "FR"
-    }
-  },
-  "serviceType": [
-    "Transfert aéroport Paris Orly",
-    "Transfert aéroport Roissy Charles de Gaulle",
-    "Transfert aéroport Beauvais-Tillé",
-    "Déplacements professionnels et d'affaires",
-    "Navette d'affaires B2B",
-    "Trajets privés et familiaux",
-    "Transfert gare Paris",
-    "Mise à disposition chauffeur privé",
-    "Transport longue distance Île-de-France"
-  ],
-  "knowsAbout": [
-    "Transfert aéroport Orly depuis Saint-Quentin-en-Yvelines",
-    "Transfert aéroport CDG depuis les Yvelines",
-    "Transfert aéroport Beauvais depuis l'Île-de-France",
-    "Transport professionnel et d'affaires en Île-de-France",
-    "Trajets privés et familiaux avec siège enfant disponible",
-    "Accueil nominatif en gare et aéroport",
-    "Chauffeur privé disponible nuit et week-end",
-    "Transport depuis Paris vers les Yvelines"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Grille tarifaire Taxi Dari 78 — Estimations indicatives",
-    "itemListElement": [
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.7748,
+      "longitude": 2.0570
+    },
+    "hasMap": "https://maps.google.com/?cid=",
+    "sameAs": [
+      "https://www.google.com/maps?q=SAS+TAXI+DARI+78",
+      "https://www.wikidata.org/wiki/Q228186"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "18",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "contactPoint": [
       {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Transfert vers Aéroport Orly (ORY)"
-        },
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceCurrency": "EUR",
-          "minPrice": 31,
-          "maxPrice": 69,
-          "description": "Estimation indicative selon la réglementation préfectorale Yvelines 2026 — Prise en charge 3€ + tarif kilométrique. Le tarif ferme est confirmé à la réservation."
-        }
+        "@type": "ContactPoint",
+        "telephone": "+33695605960",
+        "contactType": "reservations",
+        "name": "Berline Premium",
+        "availableLanguage": "French",
+        "contactOption": "TollFree",
+        "hoursAvailable": "Mo-Su 00:00-24:00"
       },
       {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Transfert vers Aéroport Roissy CDG"
-        },
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceCurrency": "EUR",
-          "minPrice": 61,
-          "maxPrice": 135,
-          "description": "Estimation indicative selon la réglementation préfectorale Yvelines 2026 — Prise en charge 3€ + tarif kilométrique. Le tarif ferme est confirmé à la réservation."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Transfert Grandes Gares Parisiennes"
-        },
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceCurrency": "EUR",
-          "minPrice": 65,
-          "maxPrice": 75,
-          "description": "Transferts vers Gare de Lyon, Montparnasse, Saint-Lazare, Gare du Nord, Gare de l'Est, Austerlitz."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Transfert Aéroport Beauvais-Tillé (BVA)"
-        },
-        "description": "Tarif sur devis — longue distance. Contactez-nous pour un tarif personnalisé."
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Tarif Nuit — Lun-Sam 19h00 à 08h00"
-        },
-        "description": "Tarif B ou D selon sens du trajet (aller-retour / aller simple) — applicable Lun-Sam de 19h00 à 08h00, tous les dimanches et jours fériés 24h/24, conformément à la réglementation préfectorale Yvelines 2026."
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Tarif Dimanche & Jours Fériés"
-        },
-        "description": "Tarif B ou D applicable tous les dimanches et jours fériés 24h/24, conformément à la réglementation préfectorale Yvelines 2026."
+        "@type": "ContactPoint",
+        "telephone": "+33681429680",
+        "contactType": "reservations",
+        "name": "SUV Confort — WhatsApp",
+        "availableLanguage": "French",
+        "contactOption": "TollFree",
+        "hoursAvailable": "Mo-Su 00:00-24:00"
       }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Bouteille d'eau offerte à bord", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Chargeurs de téléphone disponibles à bord", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Siège bébé et enfant sur demande", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Suivi de vol en temps réel", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Accueil nominatif en aéroport et gare", "value": true }
+    ],
+    "serviceType": [
+      "Transfert aéroport Paris Orly",
+      "Transfert aéroport Roissy Charles de Gaulle",
+      "Transfert aéroport Beauvais-Tillé",
+      "Transfert grandes gares parisiennes",
+      "Déplacements professionnels et d'affaires",
+      "Trajets privés et familiaux",
+      "Mise à disposition chauffeur privé",
+      "Transport longue distance Île-de-France"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Grille tarifaire Taxi Dari 78 — Tarif préfectoral Yvelines 2026",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Transfert vers Aéroport Orly (ORY)" },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "minPrice": 54,
+            "maxPrice": 81,
+            "description": "Aller simple depuis SQY et communes limitrophes, remise -15% de jour incluse (tarif C). De nuit : 70 € à 106 € avec remise -25% incluse (tarif D). Tarif ferme confirmé à la réservation."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Transfert vers Aéroport Roissy CDG" },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "minPrice": 76,
+            "maxPrice": 102,
+            "description": "Aller simple depuis SQY et communes limitrophes, remise -15% de jour incluse (tarif C). De nuit : 99 € à 134 € avec remise -25% incluse (tarif D). Tarif ferme confirmé à la réservation."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Transfert Grandes Gares Parisiennes" },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "minPrice": 40,
+            "maxPrice": 71,
+            "description": "Aller simple depuis SQY vers Montparnasse, Gare de Lyon, Gare du Nord, Gare de l'Est, Saint-Lazare, Austerlitz. Remise -15% de jour incluse (tarif C). De nuit : 52 € à 92 € avec remise -25% incluse (tarif D). Tarif ferme confirmé à la réservation."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Transfert Aéroport Beauvais-Tillé (BVA)" },
+          "description": "Tarif sur devis — longue distance. Suivi de vol inclus. Contactez-nous pour un tarif personnalisé."
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Tarif nuit, dimanche et jours fériés" },
+          "description": "Tarif D applicable sur allers simples : lun-sam de 19h00 à 08h00, tous les dimanches et jours fériés 24h/24. Remise nuit -25% incluse. Tarif préfectoral Yvelines 2026."
+        }
+      ]
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Saint-Quentin-en-Yvelines" },
+      { "@type": "City", "name": "Coignières" },
+      { "@type": "City", "name": "Élancourt" },
+      { "@type": "City", "name": "Fontenay-le-Fleury" },
+      { "@type": "City", "name": "Guyancourt" },
+      { "@type": "City", "name": "Jouars-Pontchartrain" },
+      { "@type": "City", "name": "La Verrière" },
+      { "@type": "City", "name": "Le Mesnil-Saint-Denis" },
+      { "@type": "City", "name": "Les Clayes-sous-Bois" },
+      { "@type": "City", "name": "Magny-les-Hameaux" },
+      { "@type": "City", "name": "Marly-le-Roi" },
+      { "@type": "City", "name": "Maurepas" },
+      { "@type": "City", "name": "Montigny-le-Bretonneux" },
+      { "@type": "City", "name": "Plaisir" },
+      { "@type": "City", "name": "Saint-Cyr-l'École" },
+      { "@type": "City", "name": "Saint-Nom-la-Bretèche" },
+      { "@type": "City", "name": "Trappes" },
+      { "@type": "City", "name": "Versailles" },
+      { "@type": "City", "name": "Villepreux" },
+      { "@type": "City", "name": "Voisins-le-Bretonneux" },
+      { "@type": "AdministrativeArea", "name": "Yvelines", "sameAs": "https://www.wikidata.org/wiki/Q12543" },
+      { "@type": "City", "name": "Paris", "sameAs": "https://www.wikidata.org/wiki/Q90" },
+      { "@type": "AdministrativeArea", "name": "Hauts-de-Seine", "sameAs": "https://www.wikidata.org/wiki/Q12548" },
+      { "@type": "AdministrativeArea", "name": "Seine-Saint-Denis", "sameAs": "https://www.wikidata.org/wiki/Q12547" },
+      { "@type": "AdministrativeArea", "name": "Val-de-Marne", "sameAs": "https://www.wikidata.org/wiki/Q12546" },
+      { "@type": "Airport", "name": "Aéroport de Paris-Orly", "iataCode": "ORY" },
+      { "@type": "Airport", "name": "Aéroport Roissy Charles-de-Gaulle", "iataCode": "CDG" },
+      { "@type": "Airport", "name": "Aéroport Beauvais-Tillé", "iataCode": "BVA" }
     ]
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "1 Rue Jules Massenet",
-    "addressLocality": "Fontenay-le-Fleury",
-    "postalCode": "78330",
-    "addressCountry": "FR"
-  },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Saint-Quentin-en-Yvelines"
-    },
-    {
-      "@type": "City",
-      "name": "Les Clayes-sous-Bois"
-    },
-    {
-      "@type": "City",
-      "name": "Coignières"
-    },
-    {
-      "@type": "City",
-      "name": "Élancourt"
-    },
-    {
-      "@type": "City",
-      "name": "Guyancourt"
-    },
-    {
-      "@type": "City",
-      "name": "Magny-les-Hameaux"
-    },
-    {
-      "@type": "City",
-      "name": "Maurepas"
-    },
-    {
-      "@type": "City",
-      "name": "Montigny-le-Bretonneux"
-    },
-    {
-      "@type": "City",
-      "name": "Plaisir"
-    },
-    {
-      "@type": "City",
-      "name": "Trappes"
-    },
-    {
-      "@type": "City",
-      "name": "La Verrière"
-    },
-    {
-      "@type": "City",
-      "name": "Villepreux"
-    },
-    {
-      "@type": "City",
-      "name": "Voisins-le-Bretonneux"
-    },
-    {
-      "@type": "City",
-      "name": "Versailles"
-    },
-    {
-      "@type": "City",
-      "name": "Fontenay-le-Fleury"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Yvelines",
-      "sameAs": "https://www.wikidata.org/wiki/Q12543"
-    },
-    {
-      "@type": "City",
-      "name": "Paris",
-      "sameAs": "https://www.wikidata.org/wiki/Q90"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Hauts-de-Seine",
-      "sameAs": "https://www.wikidata.org/wiki/Q12548"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Seine-Saint-Denis",
-      "sameAs": "https://www.wikidata.org/wiki/Q12547"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Val-de-Marne",
-      "sameAs": "https://www.wikidata.org/wiki/Q12546"
-    },
-    {
-      "@type": "Airport",
-      "name": "Aéroport de Paris-Orly",
-      "iataCode": "ORY"
-    },
-    {
-      "@type": "Airport",
-      "name": "Aéroport Roissy Charles-de-Gaulle",
-      "iataCode": "CDG"
-    },
-    {
-      "@type": "Airport",
-      "name": "Aéroport Beauvais-Tillé",
-      "iataCode": "BVA"
-    },
-    {
-      "@type": "City",
-      "name": "Jouars-Pontchartrain"
-    },
-    {
-      "@type": "City",
-      "name": "Le Mesnil-Saint-Denis"
-    },
-    {
-      "@type": "City",
-      "name": "Saint-Cyr-l'École"
-    },
-    {
-      "@type": "City",
-      "name": "Marly-le-Roi"
-    },
-    {
-      "@type": "City",
-      "name": "Saint-Nom-la-Bretèche"
-    }
-  ],
-  "sameAs": [
-    "https://www.google.com/maps?q=SAS+TAXI+DARI+78"
-  ],
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+33695605960",
-      "contactType": "reservations",
-      "name": "Berline Premium",
-      "availableLanguage": "French"
-    },
-    {
-      "@type": "ContactPoint",
-      "telephone": "+33681429680",
-      "contactType": "reservations",
-      "name": "SUV Confort — WhatsApp",
-      "availableLanguage": "French"
-    }
-  ]
-}
-</script>
+  }
+  </script>
 
-  <!-- JSON-LD 2 : FAQPage GEO — questions clés pour les IA -->
+  <!-- JSON-LD 2 : FAQPage enrichie AEO — réponses directes pour moteurs IA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien coûte un taxi de Trappes à l'aéroport d'Orly ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le prix d'un taxi entre Trappes et l'aéroport d'Orly (ORY) avec Taxi Dari 78 est d'environ 69 € de jour (tarif C préfectoral Yvelines 2026, remise -15% incluse) ou environ 90 € de nuit (tarif D, remise -25% incluse). Le tarif ferme est confirmé à la réservation. Aucun supplément bagages ou passagers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien coûte un taxi de Versailles à l'aéroport d'Orly ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le prix d'un taxi entre Versailles et l'aéroport d'Orly (ORY) avec Taxi Dari 78 est d'environ 54 € de jour (tarif C préfectoral Yvelines 2026, remise -15% incluse) ou environ 70 € de nuit (tarif D, remise -25% incluse). Versailles étant la commune la plus proche d'Orly parmi les zones desservies, c'est le trajet le plus avantageux. Tarif ferme confirmé à la réservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Y a-t-il une remise sur les courses de taxi de nuit depuis les Yvelines ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, mais uniquement sur les transferts vers les aéroports (Orly, CDG, Beauvais) et les grandes gares parisiennes. Taxi Dari 78 applique une remise commerciale de -25% de nuit (tarif D : lun-sam de 19h00 à 08h00, et tous les dimanches et jours fériés 24h/24) et de -15% de jour (lun-sam 08h00–19h00, tarif C) sur ces trajets en aller simple avec retour à vide. Pour tout autre trajet local (ex. gare de SQY → domicile), le tarif est celui du compteur réglementé, sans remise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel est le tarif d'un taxi depuis Saint-Quentin-en-Yvelines vers les gares parisiennes ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Taxi Dari 78 dessert toutes les grandes gares parisiennes depuis SQY : Gare Montparnasse (à partir de 19 €), Gare de Lyon, Gare du Nord, Gare de l'Est, Gare Saint-Lazare et Gare d'Austerlitz (à partir de 22 €). Tarifs estimatifs avec remise -15% de jour incluse. Tarif ferme confirmé à la réservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il réserver à l'avance un taxi depuis Saint-Quentin-en-Yvelines ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La réservation à l'avance est fortement recommandée pour garantir la disponibilité du véhicule, notamment pour les trajets vers les aéroports ou les gares. Taxi Dari 78 accepte les réservations via WhatsApp, SMS ou formulaire en ligne sur taxi-dari-78.com. Une réponse est garantie sous 15 minutes. Les réservations de dernière minute sont également prises en charge selon disponibilité."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Taxi Dari 78 est-il moins cher qu'une application de réservation depuis Orly vers Saint-Quentin-en-Yvelines ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Taxi Dari 78 applique le tarif réglementé préfectoral Yvelines 2026, avec une remise commerciale de -15% de jour et -25% de nuit sur les allers simples. Contrairement aux plateformes à prix variable (surge pricing aux heures de pointe), le tarif est ferme et confirmé avant la course. Aucun supplément pour les bagages ou le nombre de passagers. Suivi de vol inclus sans frais."
+        }
+      },
       {
         "@type": "Question",
         "name": "Comment réserver un taxi depuis Saint-Quentin-en-Yvelines vers l'aéroport d'Orly ?",
@@ -373,72 +306,6 @@
         }
       }
     ]
-  }
-  </script>
-
-  <!-- JSON-LD 3 : TaxiService GEO — couverture exacte 19 communes + tarifs promos + services bord -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TaxiService",
-    "name": "Taxi Dari 78",
-    "url": "https://taxi-dari-78.com",
-    "description": "Service de taxi privé, transferts aéroports et gares à Saint-Quentin-en-Yvelines et communes limitrophes. Remise -15% de jour et -25% de nuit sur allers simples (retour à vide). Services à bord : bouteille d'eau et chargeurs de téléphone offerts.",
-    "areaServed": [
-      { "@type": "City", "name": "Coignières" },
-      { "@type": "City", "name": "Élancourt" },
-      { "@type": "City", "name": "Fontenay-le-Fleury" },
-      { "@type": "City", "name": "Guyancourt" },
-      { "@type": "City", "name": "Jouars-Pontchartrain" },
-      { "@type": "City", "name": "La Verrière" },
-      { "@type": "City", "name": "Le Mesnil-Saint-Denis" },
-      { "@type": "City", "name": "Les Clayes-sous-Bois" },
-      { "@type": "City", "name": "Magny-les-Hameaux" },
-      { "@type": "City", "name": "Marly-le-Roi" },
-      { "@type": "City", "name": "Maurepas" },
-      { "@type": "City", "name": "Montigny-le-Bretonneux" },
-      { "@type": "City", "name": "Plaisir" },
-      { "@type": "City", "name": "Saint-Cyr-l'École" },
-      { "@type": "City", "name": "Saint-Nom-la-Bretèche" },
-      { "@type": "City", "name": "Trappes" },
-      { "@type": "City", "name": "Versailles" },
-      { "@type": "City", "name": "Villepreux" },
-      { "@type": "City", "name": "Voisins-le-Bretonneux" }
-    ],
-    "amenityFeature": [
-      { "@type": "LocationFeatureSpecification", "name": "Bouteille d'eau offerte à bord", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Chargeurs de téléphone disponibles à bord", "value": true }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services de Transport — Taxi Dari 78",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Transfert Aéroport Orly / CDG / Beauvais depuis SQY"
-          },
-          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour (tarif C, lun-sam 08h00-19h00) ou -25% de nuit (tarif D, lun-sam 19h00-08h00, dimanches et jours fériés). Aller-retour sans remise."
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Transfert Grandes Gares Parisiennes"
-          },
-          "description": "Aller simple avec retour à vide : remise commerciale de -15% de jour (tarif C) ou -25% de nuit (tarif D). Aller-retour sans remise."
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Transport privé et personnel 24/7"
-          },
-          "description": "Déplacements professionnels, familiaux et personnels. Services à bord inclus : bouteille d'eau et chargeurs de téléphone."
-        }
-      ]
-    }
   }
   </script>
 
@@ -2239,6 +2106,133 @@
 
     <div class="divider"></div>
 
+    <!-- ─── MAILLAGE TERRITORIAL — PAGES GEO PILIERS ─── -->
+    <section class="section-pad" id="destinations">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Tarifs par commune</span>
+          <h2 class="section-title">Votre taxi depuis SQY<br>vers Orly &amp; CDG.</h2>
+          <p style="color:var(--muted); font-size:.92rem; line-height:1.75; max-width:620px; margin-top:12px;">
+            Chaque commune de Saint-Quentin-en-Yvelines est à une distance différente des aéroports. Retrouvez ci-dessous le tarif estimatif pour votre ville de départ — tarif préfectoral Yvelines 2026, remise incluse.
+          </p>
+        </div>
+
+        <!-- Sous-groupe Orly -->
+        <div class="reveal" style="margin-bottom:48px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+            <div style="width:32px; height:1px; background:linear-gradient(90deg,#c9a45a,#e2c07a);"></div>
+            <span style="font-size:.65rem; letter-spacing:.28em; text-transform:uppercase; color:#c9a45a;">✈ Aéroport d'Orly (ORY)</span>
+            <div style="flex:1; height:1px; background:rgba(255,255,255,.08);"></div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+            <a href="/taxi-trappes-orly.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Trappes</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">Orly</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 69 €</span><span class="pilier-night">🌙 90 €</span></div>
+                <div class="pilier-dist">39 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-guyancourt-orly.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Guyancourt</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">Orly</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 64 €</span><span class="pilier-night">🌙 84 €</span></div>
+                <div class="pilier-dist">36 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-elancourt-orly.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Élancourt</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">Orly</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 74 €</span><span class="pilier-night">🌙 97 €</span></div>
+                <div class="pilier-dist">42 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-plaisir-orly.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Plaisir</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">Orly</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 76 €</span><span class="pilier-night">🌙 99 €</span></div>
+                <div class="pilier-dist">43 km · Tarif ferme</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sous-groupe CDG -->
+        <div class="reveal" style="margin-bottom:48px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+            <div style="width:32px; height:1px; background:linear-gradient(90deg,#c9a45a,#e2c07a);"></div>
+            <span style="font-size:.65rem; letter-spacing:.28em; text-transform:uppercase; color:#c9a45a;">✈ Aéroport Charles-de-Gaulle (CDG)</span>
+            <div style="flex:1; height:1px; background:rgba(255,255,255,.08);"></div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+            <a href="/taxi-trappes-cdg.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Trappes</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">CDG</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 91 €</span><span class="pilier-night">🌙 119 €</span></div>
+                <div class="pilier-dist">52 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-montigny-cdg.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Montigny-le-Bretonneux</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">CDG</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 91 €</span><span class="pilier-night">🌙 119 €</span></div>
+                <div class="pilier-dist">52 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-guyancourt-cdg.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Guyancourt</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">CDG</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 86 €</span><span class="pilier-night">🌙 113 €</span></div>
+                <div class="pilier-dist">49 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-elancourt-cdg.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Élancourt</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">CDG</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 97 €</span><span class="pilier-night">🌙 127 €</span></div>
+                <div class="pilier-dist">55 km · Tarif ferme</div>
+              </div>
+            </a>
+            <a href="/taxi-plaisir-cdg.html" style="text-decoration:none;" class="pilier-card">
+              <div class="pilier-inner">
+                <div class="pilier-from">Plaisir</div><div class="pilier-arrow">→</div>
+                <div class="pilier-to">CDG</div>
+                <div class="pilier-prices"><span class="pilier-day">☀ 93 €</span><span class="pilier-night">🌙 122 €</span></div>
+                <div class="pilier-dist">53 km · Tarif ferme</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Note de bas de section -->
+        <div class="reveal" style="padding:20px 28px; border:1px solid rgba(255,255,255,.08); border-left:3px solid #c9a45a; background:rgba(201,164,90,.03); font-size:.82rem; color:#888; line-height:1.7;">
+          Tarifs estimatifs — tarif préfectoral Yvelines 2026, remise aéroport incluse (-15% de jour, -25% de nuit). Le tarif ferme vous est confirmé sous 15 minutes lors de votre réservation. Aucun supplément bagages.
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .pilier-card { display:block; background:#0e0e0e; border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:24px 20px; transition:border-color .2s, background .2s; }
+      .pilier-card:hover { border-color:rgba(201,164,90,.35); background:rgba(201,164,90,.03); }
+      .pilier-inner { display:flex; flex-direction:column; gap:6px; }
+      .pilier-from { font-size:.95rem; font-weight:500; color:#fff; line-height:1.2; }
+      .pilier-arrow { font-size:.75rem; color:#c9a45a; letter-spacing:.1em; }
+      .pilier-to { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; color:#e2c07a; line-height:1; }
+      .pilier-prices { display:flex; gap:12px; margin-top:10px; flex-wrap:wrap; }
+      .pilier-day { font-size:.82rem; color:#fff; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:3px 10px; }
+      .pilier-night { font-size:.82rem; color:#9999cc; background:rgba(90,90,180,.08); border:1px solid rgba(90,90,180,.2); border-radius:20px; padding:3px 10px; }
+      .pilier-dist { font-size:.72rem; color:#888; margin-top:4px; letter-spacing:.04em; }
+    </style>
+
+    <div class="divider"></div>
+
     <!-- ─── AVIS CLIENTS ─── -->
     <section class="section-pad">
       <div class="wrap">
@@ -2793,6 +2787,72 @@
         </button>
         <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <p itemprop="text">Non, Taxi Dari 78 est exclusivement dédié au transport personnel, privé et professionnel. Aucun transport conventionné CPAM n'est pris en charge.</p>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Combien coûte un taxi de Trappes à l'aéroport d'Orly ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Le trajet entre Trappes et l'aéroport d'Orly (ORY) est estimé à environ <strong>69 €</strong> de jour (tarif C préfectoral Yvelines 2026, remise -15% incluse) ou environ <strong>90 €</strong> de nuit (tarif D, remise -25% incluse). Aucun supplément bagages ou passagers. Le tarif ferme est confirmé à la réservation. Utilisez notre simulateur ci-dessus pour obtenir une estimation personnalisée.</p>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Combien coûte un taxi de Versailles à l'aéroport d'Orly ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Le trajet entre Versailles et l'aéroport d'Orly (ORY) est estimé à environ <strong>54 €</strong> de jour (tarif C préfectoral Yvelines 2026, remise -15% incluse) ou environ <strong>70 €</strong> de nuit (tarif D, remise -25% incluse). Versailles étant la commune la plus proche d'Orly parmi nos zones desservies, c'est le trajet le plus avantageux. Tarif ferme confirmé à la réservation.</p>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Y a-t-il une remise sur les courses de taxi de nuit depuis les Yvelines ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Oui, mais uniquement sur les transferts vers les <strong>aéroports</strong> (Orly, CDG, Beauvais) et les <strong>grandes gares parisiennes</strong>. Taxi Dari 78 applique une <strong>remise commerciale de -25%</strong> de nuit (tarif D : lun-sam de 19h00 à 08h00, et tous les dimanches et jours fériés 24h/24) et de <strong>-15%</strong> de jour (lun-sam 08h00–19h00, tarif C) sur ces trajets en aller simple avec retour à vide. Pour tout autre trajet local (ex. gare de SQY → domicile), le tarif est celui du compteur réglementé, sans remise. Ces remises sont calculées automatiquement dans le simulateur de tarif.</p>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Quel est le tarif d'un taxi de nuit depuis Saint-Quentin-en-Yvelines ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">La nuit, le tarif préfectoral passe en <strong>tarif D</strong> (2,97 €/km) avec une remise commerciale de <strong>-25%</strong> incluse sur tous les allers simples. Exemples de tarifs nuit : Versailles → Orly ≈ <strong>70 €</strong>, Trappes → Orly ≈ <strong>90 €</strong>, Versailles → CDG ≈ <strong>102 €</strong>. Tarif ferme confirmé à la réservation, sans surcharge cachée ni supplément bagages.</p>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Faut-il réserver à l'avance un taxi depuis Saint-Quentin-en-Yvelines ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">La réservation à l'avance est fortement recommandée pour garantir la disponibilité, notamment pour les transferts aéroports et gares aux heures de pointe. Taxi Dari 78 accepte les réservations via WhatsApp, SMS ou le formulaire en ligne. Une réponse est garantie sous 15 minutes. Les demandes de dernière minute sont également prises en compte selon disponibilité.</p>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">Taxi Dari 78 est-il moins cher qu'une application de réservation depuis Orly vers Saint-Quentin-en-Yvelines ?</span>
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Taxi Dari 78 applique le tarif réglementé préfectoral Yvelines 2026, avec une remise commerciale de -15% de jour et -25% de nuit sur les allers simples. Contrairement aux plateformes à prix variable (<em>surge pricing</em> aux heures de pointe), le tarif est <strong>ferme et confirmé avant la course</strong>. Aucun supplément pour les bagages ou le nombre de passagers. Suivi de vol inclus, sans frais.</p>
         </div>
       </div>
 

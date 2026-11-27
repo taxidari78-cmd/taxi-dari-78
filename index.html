@@ -545,6 +545,14 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a.nav-sim {
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 8px 14px;
+      border-radius: 2px;
+    }
+    .nav-links a.nav-sim:hover { border-color: var(--gold); }
+    .mobile-menu a.nav-sim { color: var(--gold); }
 
     /* HERO BODY */
     .hero-body {
@@ -1792,6 +1800,10 @@
     #simAdresse .adr-btn-ghost { background: transparent; color: var(--gold-light); border: 1px solid var(--gold); }
     #simAdresse .adr-btn-ghost:hover { background: rgba(201,164,90,.12); }
     #simAdresse .adr-demo { margin-top: 12px; padding: 12px; border: 1px dashed var(--gold-border); color: var(--muted); font-size: .8rem; line-height: 1.6; text-align: left; }
+    #simAdresse { scroll-margin-top: 48px; }
+    #simAdresse .adr-time { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+    #simAdresse .adr-time .sim-select { width: 100%; min-height: 49px; font-size: 1rem; }
+    #simAdresse .adr-time-sep { color: var(--gold-dim); font-size: .95rem; }
     @media (max-width: 768px) { #simAdresse .adr-actions, #simAdresse .adr-row { grid-template-columns: 1fr; } #simAdresse .adr-price { font-size: 2.3rem; } }
   </style>
 <script src="/suivi.js" defer></script>
@@ -1854,6 +1866,7 @@
             </div>
             <ul class="nav-links anim-fade delay-3">
               <li><a href="#garanties">Garanties</a></li>
+              <li><a href="#simAdresse" class="nav-sim">Simulateur</a></li>
               <li><a href="#tarifs">Tarifs</a></li>
               <li><a href="#flotte">Flotte</a></li>
               <li><a href="#reservation">Réservation</a></li>
@@ -1869,6 +1882,7 @@
       <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
         <a href="#garanties" onclick="toggleMenu()">Garanties</a>
+        <a href="#simAdresse" class="nav-sim" onclick="toggleMenu()">Simulateur</a>
         <a href="#tarifs" onclick="toggleMenu()">Tarifs</a>
         <a href="#flotte" onclick="toggleMenu()">Flotte</a>
         <a href="#reservation" onclick="toggleMenu()">Réservation</a>
@@ -2120,8 +2134,13 @@
       <input class="adr-input" id="adrDate" type="date">
     </div>
     <div class="adr-field">
-      <label class="adr-lbl" for="adrHeure" id="adrLblHeure">Heure de départ</label>
-      <input class="adr-input" id="adrHeure" type="time">
+      <label class="adr-lbl" for="adrHeureH" id="adrLblHeure">Heure de départ</label>
+      <div class="adr-time">
+        <div class="sim-select-wrap"><select class="sim-select" id="adrHeureH" aria-label="Heure"><option value="">Heure</option></select></div>
+        <span class="adr-time-sep" aria-hidden="true">h</span>
+        <div class="sim-select-wrap"><select class="sim-select" id="adrHeureM" aria-label="Minutes"><option value="">Min</option></select></div>
+      </div>
+      <input id="adrHeure" type="time" hidden style="display:none" tabindex="-1" aria-hidden="true">
     </div>
   </div>
 
@@ -2422,6 +2441,22 @@
   $dest.addEventListener('change', calculer);
   $date.addEventListener('change', calculer);
   $heure.addEventListener('change', calculer);
+
+  /* ---------- Heure : deux listes (heures / minutes par pas de 5) qui alimentent le champ horaire d'origine ---------- */
+  (function(){
+    var $hh = document.getElementById('adrHeureH'), $mm = document.getElementById('adrHeureM');
+    function opt(sel, v){ var o = document.createElement('option'); o.value = o.textContent = v; sel.appendChild(o); }
+    function p2(n){ return (n < 10 ? '0' : '') + n; }
+    for (var h = 0; h < 24; h++) opt($hh, p2(h));
+    for (var m = 0; m < 60; m += 5) opt($mm, p2(m));
+    function maj(){
+      if (!$hh.value) { $heure.value = ''; }
+      else { if (!$mm.value) $mm.value = '00'; $heure.value = $hh.value + ':' + $mm.value; }
+      $heure.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    $hh.addEventListener('change', maj);
+    $mm.addEventListener('change', maj);
+  })();
 
   /* ---------- Arrivée depuis un sous-site : /?commune=Trappes#simAdresse ----------
      Pré-sélectionne la commune de départ (Yvelines uniquement) et active le champ adresse. */
